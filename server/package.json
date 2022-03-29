@@ -1,0 +1,20 @@
+{
+  "name": "on-the-aux",
+  "version": "1.0.0",
+  "description": "Backend for INFO6150 Final Group Project",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "audio",
+    "app",
+    "nodejs",
+    "mongo"
+  ],
+  "author": "Prasad Sreyoshi Gloria Trisha",
+  "license": "ISC"
+}
