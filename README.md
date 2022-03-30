@@ -33,6 +33,10 @@ ON THE AUX
 
 # Domain Model-
 
+![image](https://user-images.githubusercontent.com/98073008/160746227-aa349182-0398-499f-a5d8-b1757d986175.png)
+
+
+
 
 
 
