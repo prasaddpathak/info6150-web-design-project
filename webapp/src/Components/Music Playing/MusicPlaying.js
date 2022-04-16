@@ -8,11 +8,7 @@ class MusicPlaying extends React.Component {
         return ( <
             React.Fragment >
             <
-            h1 > Music playing < /h1>
-
-
-
-            <
+            h1 > Music playing < /h1> <
             /React.Fragment>
         );
     }
@@ -20,4 +16,4 @@ class MusicPlaying extends React.Component {
 
 
 
-export default MusicPlaying
+export default MusicPlaying;

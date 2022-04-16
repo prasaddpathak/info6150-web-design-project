@@ -5,13 +5,9 @@ class InternetRadio extends React.Component {
 
 
     render() {
-        return ( <
-            React.Fragment >
-            <
-            h1 > Internat radio < /h1>
-
-            <
-            /React.Fragment>
+        return (<React.Fragment>
+            <h1> Internat radio </h1>
+        </React.Fragment>
         );
     }
 }
