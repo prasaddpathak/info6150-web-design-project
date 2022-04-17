@@ -29,7 +29,7 @@ class AccountSetting extends React.Component {
         this.setState({ passwordUpdate: newState });
         console.log(this.state.passwordUpdate)
     };
-    //person detail
+    //Detect the personal details
     handleChangePDetails = (event) => {
         let newState = { ...this.state.pDetails }
         if (event.target.name === 'contactNo') {
@@ -43,7 +43,7 @@ class AccountSetting extends React.Component {
         newState[event.target.name] = event.target.value
         this.setState({ pDetails: newState });
     };
-    //password button API connection
+    //API is called while clicking on submit button of password changing
     submitPasswordUpdate = (e) => {
         e.preventDefault()
         console.log(e)
@@ -52,7 +52,7 @@ class AccountSetting extends React.Component {
             this.setState({ passwordMsg: "" })
         }, 2000)
     }
-    //personal details connection API
+    //API is called while clicking on submit button of personal details
     submitPDetailsUpdate = (e) => {
         e.preventDefault()
         this.setState({ pDetailsMsg: "Personal Details Updated Successfully" })
