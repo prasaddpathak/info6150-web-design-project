@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import MusicPlaying from './Components/Music Playing/MusicPlaying';
+import AccountSetting from './Components/AccountSetting/AccountSetting';
+import InternetRadio from './Components/InternetRadio/InternetRadio';
+import { Route, BrowserRouter as Router, Link, Routes } from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <Router>
+          <Routes>
+            <Route path='/MusicPlaying' element={< MusicPlaying />}> </Route>
+            <Route path='/AccountSetting' element={< AccountSetting />}> </Route>
+            <Route path='/InternetRadio' element={< InternetRadio />}> </Route>
+          </Routes> </Router> </div>
+
     </div>
   );
 }
