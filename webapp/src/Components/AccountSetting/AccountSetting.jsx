@@ -3,6 +3,7 @@ import React from "react";
 import './AccountSetting.scss'
 import { Link } from "react-router-dom";
 
+//form k state define
 class AccountSetting extends React.Component {
     constructor(props) {
         super(props)
@@ -22,13 +23,14 @@ class AccountSetting extends React.Component {
 
 
     }
-
+    //form passrd changes detection,updation state
     handleChangePassword = (event) => {
         let newState = { ...this.state.passwordUpdate }
         newState[event.target.name] = event.target.value
         this.setState({ passwordUpdate: newState });
         console.log(this.state.passwordUpdate)
     };
+    //person detail
     handleChangePDetails = (event) => {
         let newState = { ...this.state.pDetails }
         if (event.target.name === 'contactNo') {
@@ -42,7 +44,7 @@ class AccountSetting extends React.Component {
         newState[event.target.name] = event.target.value
         this.setState({ pDetails: newState });
     };
-
+    //password button API connection
     submitPasswordUpdate = (e) => {
         e.preventDefault()
         console.log(e)
@@ -51,6 +53,7 @@ class AccountSetting extends React.Component {
             this.setState({ passwordMsg: "" })
         }, 2000)
     }
+    //personal details connection API
     submitPDetailsUpdate = (e) => {
         e.preventDefault()
         this.setState({ pDetailsMsg: "Personal Details Updated Successfully" })
@@ -63,7 +66,9 @@ class AccountSetting extends React.Component {
         return <React.Fragment>
             <div className="main col-md-12">
                 <div className="AccSetting col-md-6" >
+ //PASWORD CHANGE FORM
                     <div>
+
                         <h4 className="col-md-12 float-left mb-4" >Change Password</h4>
                         <form onSubmit={this.submitPasswordUpdate} className="changePasswordForm form-inline">
                             <div className="form-group mb-2">
@@ -79,6 +84,7 @@ class AccountSetting extends React.Component {
                         <span className="text-success"><b>{this.state.passwordMsg}</b></span>
                     </div>
                     <hr className="seperator"></hr>
+                    //personal details change form
                     <div >
                         <h4 className="col-md-12 float-left mb-4" >Update Personal Details</h4>
                         <form onSubmit={this.submitPDetailsUpdate} className="changePasswordForm form-inline">
