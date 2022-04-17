@@ -65,9 +65,8 @@ class AccountSetting extends React.Component {
         return <React.Fragment>
             <div className="main col-md-12">
                 <div className="AccSetting col-md-6" >
- //PASWORD CHANGE FORM
+                    {/* Entire form of password change */}
                     <div>
-
                         <h4 className="col-md-12 float-left mb-4" >Change Password</h4>
                         <form onSubmit={this.submitPasswordUpdate} className="changePasswordForm form-inline">
                             <div className="form-group mb-2">
@@ -83,7 +82,7 @@ class AccountSetting extends React.Component {
                         <span className="text-success"><b>{this.state.passwordMsg}</b></span>
                     </div>
                     <hr className="seperator"></hr>
-                    //personal details change form
+                    {/*  Entire form of personal details change */}
                     <div >
                         <h4 className="col-md-12 float-left mb-4" >Update Personal Details</h4>
                         <form onSubmit={this.submitPDetailsUpdate} className="changePasswordForm form-inline">
@@ -99,7 +98,6 @@ class AccountSetting extends React.Component {
                         </form>
                         <span className="text-success"><b>{this.state.pDetailsMsg}</b></span>
                     </div>
-
 
                     <Link to={"/MusicPlaying"}>Music</Link>
                 </div>
