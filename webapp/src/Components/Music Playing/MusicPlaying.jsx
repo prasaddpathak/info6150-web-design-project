@@ -5,11 +5,10 @@ class MusicPlaying extends React.Component {
 
 
     render() {
-        return ( <
+        return (<
             React.Fragment >
-            <
-            h1 > Music playing < /h1> <
-            /React.Fragment>
+            <h1> Music playing </h1>
+        </React.Fragment>
         );
     }
 }
