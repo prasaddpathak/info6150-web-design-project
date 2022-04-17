@@ -79,7 +79,21 @@ class AccountSetting extends React.Component {
                         <span className="text-success"><b>{this.state.passwordMsg}</b></span>
                     </div>
                     <hr className="seperator"></hr>
-
+                    <div >
+                        <h4 className="col-md-12 float-left mb-4" >Update Personal Details</h4>
+                        <form onSubmit={this.submitPDetailsUpdate} className="changePasswordForm form-inline">
+                            <div className="form-group mb-2">
+                                <label className="col-md-4"  >Full Name</label>
+                                <input onChange={this.handleChangePDetails} className="col-md-6 form-control" name="name" type="text" value={this.state.pDetails.name} placeholder="Enter Name" />
+                            </div>
+                            <div className="form-group mb-2">
+                                <label className="col-md-4"  >Contact Nmber</label>
+                                <input onChange={this.handleChangePDetails} className="col-md-6 form-control" name="contactNo" type="text" value={this.state.pDetails.contactNo} placeholder="Enter Contact Number" />
+                            </div>
+                            <button type="submit" className="btn btn-primary mb-2 lg">Submit</button>
+                        </form>
+                        <span className="text-success"><b>{this.state.pDetailsMsg}</b></span>
+                    </div>
 
 
                     <Link to={"/MusicPlaying"}>Music</Link>
