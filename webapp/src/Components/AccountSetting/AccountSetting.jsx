@@ -3,7 +3,7 @@ import React from "react";
 import './AccountSetting.scss'
 import { Link } from "react-router-dom";
 
-//form k state define
+//Define the state of the form
 class AccountSetting extends React.Component {
     constructor(props) {
         super(props)
@@ -21,9 +21,8 @@ class AccountSetting extends React.Component {
             pDetailsMsg: ''
         }
 
-
     }
-    //form passrd changes detection,updation state
+    //Detect the password change condition and state the update details
     handleChangePassword = (event) => {
         let newState = { ...this.state.passwordUpdate }
         newState[event.target.name] = event.target.value
@@ -105,10 +104,6 @@ class AccountSetting extends React.Component {
                     <Link to={"/MusicPlaying"}>Music</Link>
                 </div>
             </div>
-
-
-
-
 
         </React.Fragment>
     }
