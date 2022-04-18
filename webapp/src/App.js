@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-import MusicPlaying from './Components/Music Playing/MusicPlaying';
-import AccountSetting from './Components/AccountSetting/AccountSetting';
-import InternetRadio from './Components/InternetRadio/InternetRadio';
-import { Route, BrowserRouter as Router, Link, Routes } from 'react-router-dom'
+/*
+    Author:     Prasad A. Pathak
+    NEU ID:     002925486
+    Email:      pathak.pra@northeastern.edu
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    Javascript file for the Main App React component
+*/
+import React from 'react';
+import './App.scss';
+import Home from './Pages/Home/Home';
 
-function App() {
-  return (
-    <div className="App">
-      <div>
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+
+class App extends React.Component {
+
+  render() {
+    return (
+      <>
         <Router>
-          <Routes>
-            <Route path='/MusicPlaying' element={< MusicPlaying />}> </Route>
-            <Route path='/AccountSetting' element={< AccountSetting />}> </Route>
-            <Route path='/InternetRadio' element={< InternetRadio />}> </Route>
-          </Routes> </Router> </div>
-
-    </div>
-  );
+          <Switch>
+              {/* <Route path="/" exact component={Login}/> */}
+              <Route path="/home" component={Home}/>
+          </Switch>
+      </Router>
+      </>
+    );
+  }
 }
 
 export default App;
