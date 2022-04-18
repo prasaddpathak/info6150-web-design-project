@@ -6,19 +6,23 @@
     Purpose:    Javascript file for the Main App React component
 */
 import React from 'react';
-import './App.css';
-import Header from './Components/Header/Header';
-import {connect} from 'react-redux';
+import './App.scss';
+import Home from './Pages/Home/Home';
+
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
-        <Header></Header>
+      <>
+        <Router>
+          <Switch>
+              {/* <Route path="/" exact component={Login}/> */}
+              <Route path="/home" component={Home}/>
+          </Switch>
+      </Router>
+      </>
     );
   }
 }

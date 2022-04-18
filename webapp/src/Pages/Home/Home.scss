@@ -1,0 +1,10 @@
+
+.home-music-container{
+    display: flex;
+    .sidebar-home{
+      flex: 0.2;
+    }
+    .main-home{
+      flex: 0.8;
+    }
+  }
