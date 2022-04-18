@@ -8,6 +8,7 @@
 import React from 'react';
 import './App.css';
 import Header from './Components/Header/Header';
+import {connect} from 'react-redux';
 
 class App extends React.Component {
 
