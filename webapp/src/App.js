@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+/*
+    Author:     Prasad A. Pathak
+    NEU ID:     002925486
+    Email:      pathak.pra@northeastern.edu
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    Javascript file for the Main App React component
+*/
+import React from 'react';
 import './App.css';
-import MusicPlaying from './Components/Music Playing/MusicPlaying';
-import AccountSetting from './Components/AccountSetting/AccountSetting';
-import InternetRadio from './Components/InternetRadio/InternetRadio';
-import { Route, BrowserRouter as Router, Link, Routes } from 'react-router-dom'
+import Header from './Components/Header/Header';
 
-function App() {
-  return (
-    <div className="App">
-      <div>
-        <Router>
-          <Routes>
-            <Route path='/MusicPlaying' element={< MusicPlaying />}> </Route>
-            <Route path='/AccountSetting' element={< AccountSetting />}> </Route>
-            <Route path='/InternetRadio' element={< InternetRadio />}> </Route>
-          </Routes> </Router> </div>
+class App extends React.Component {
 
-    </div>
-  );
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+        <Header></Header>
+    );
+  }
 }
 
 export default App;
