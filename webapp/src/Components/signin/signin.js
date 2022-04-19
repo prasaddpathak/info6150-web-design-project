@@ -41,7 +41,8 @@ const Register = () => {
     return (
         <div className="signin">
             {console.log("User", user)}
-            <h1>Register</h1>
+            <h1>Sign Up</h1>
+            <br/>
             <input type="text" name="name" value={user.name} placeholder="Your Name" onChange={ handleChange }></input>
             <br/>
             <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={ handleChange }></input>
@@ -50,7 +51,8 @@ const Register = () => {
             <br/>
             <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Password" onChange={ handleChange }></input>
             <br/>
-            <div className="button" onClick={signin} >Register</div>
+            <br/>
+            <div className="button" onClick={signin} >Sign Up</div>
             <div>or</div>
             <div className="button" onClick={() => history.push("/login")}>Login</div>
         </div>
