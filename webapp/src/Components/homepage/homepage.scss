@@ -1,3 +1,5 @@
+@import "..//..//variables.scss";
+
 @mixin  buttonStyle {
     background-color: #fff;
     color: white;
@@ -20,9 +22,22 @@
     height: 45vw;
     border-radius: 20px;
     box-shadow: 0 0 15px 5px black;
-    background-image: linear-gradient(#E56B6F,#6D597A);
+    background-image: $boxforLoginSign;
     position: relative;
     opacity: 0.9;
+    h1{
+        color: white;
+        font-family: 'Anton', sans-serif;
+font-family: 'Permanent Marker', cursive;
+font-family: 'Quintessential', cursive;
+font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+font-family: 'Rowdies', cursive;
+font-family: 'Rubik Microbe', cursive;
+font-family: 'Rubik Moonrocks', cursive;
+font-family: 'Source Code Pro', monospace;
+font-family: 'Ultra', serif;
+    }
     .button{
         @include buttonStyle();
         color: black;
