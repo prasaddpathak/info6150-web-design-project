@@ -7,7 +7,11 @@
 */
 import React from 'react';
 import './App.scss';
-import Home from './Pages/Home/Home';
+import Homepage from './Components/homepage/homepage';
+import Login from './Components/login/login';
+import Signin from './Components/signin/signin'
+
+
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -18,8 +22,9 @@ class App extends React.Component {
       <>
         <Router>
           <Switch>
-              {/* <Route path="/" exact component={Login}/> */}
-              <Route path="/home" component={Home}/>
+          <Route exact path="/"> <Homepage/></Route>
+              <Route path="/login"> <Login/> </Route>
+              <Route path="/signin"> <Signin/> </Route>
           </Switch>
       </Router>
       </>
