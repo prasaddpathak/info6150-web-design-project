@@ -82,7 +82,7 @@ class SearchBar extends React.Component {
                     <div className={"SearchBar-customPlaceholderOpen"}
                          onClick={this.handleSearchBarOpen}>
                         <SearchSharpIcon style={{color: "grey"}} className="search-icon" fontSize="small"/>
-                        <p className={"hide"}>&nbsp;Search</p>
+                        <div className={"hide"}>&nbsp;Search</div>
                     </div>
                 }
                 {
