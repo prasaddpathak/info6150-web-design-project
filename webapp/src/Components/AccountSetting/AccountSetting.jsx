@@ -1,9 +1,9 @@
 import React from "react";
-// import Toggle from "./Toggle";
+import Toggle from "./Toggle/Toggle";
 import './AccountSetting.scss'
 import { Link } from "react-router-dom";
 
-//Define the state of the form
+//Define the state of the forms
 class AccountSetting extends React.Component {
     constructor(props) {
         super(props)
@@ -98,7 +98,14 @@ class AccountSetting extends React.Component {
                         </form>
                         <span className="text-success"><b>{this.state.pDetailsMsg}</b></span>
                     </div>
+                    <hr className="seperator"></hr>
+                    <div>
 
+                        <div className="changeTheme">
+                            <h4 className="col-md-8  mb-4" >Color Theme</h4>
+                            <Toggle></Toggle>
+                        </div>
+                    </div>
                     <Link to={"/MusicPlaying"}>Music</Link>
                 </div>
             </div>
@@ -107,4 +114,3 @@ class AccountSetting extends React.Component {
     }
 }
 export default AccountSetting
-
