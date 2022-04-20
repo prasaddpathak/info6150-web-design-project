@@ -10,8 +10,8 @@ nav {
   display: flex;
   background-color: black;
   user-select: none;
-  border-bottom: 1px solid #e0e0e0;
-  padding-right: 10px;
+  // border-bottom: 1px solid #e0e0e0;
+  // padding-right: 10px;
 
   div {
     @include flexBox;
@@ -19,16 +19,6 @@ nav {
 
   .navigation {
     flex-flow: row wrap;
-  }
-
-  .language {
-    // padding: 10px;
-    // background-color: wheat;
-  }
-
-  .profile {
-    // padding: 10px;
-    // background-color: wheat;
   }
 
   .Dropdown-btn {

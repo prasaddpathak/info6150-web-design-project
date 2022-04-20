@@ -71,7 +71,7 @@ class Header extends React.Component {
                     <Button className={"Dropdown-btn"}
                             endIcon={this.state.isLanguageListOpen ? <ExpandMoreIcon/> : <ExpandLessIcon/>}>
                         <div className="wrapper">
-                            <p>Genre</p>
+                            <div>Genre</div>
                         </div>
                     </Button>
                     {

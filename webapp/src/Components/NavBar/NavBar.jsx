@@ -1,7 +1,7 @@
 import React from "react";
 import "./NavBar.scss";
 import SideBarOptions from "./NavBarOptions/NavBarOptions";
-import {ExploreOutlined, HomeOutlined, PlaylistPlay, SearchOutlined} from "@material-ui/icons";
+import {ExploreOutlined, HomeOutlined, PlaylistPlay, SearchOutlined, EventNote} from "@material-ui/icons";
 
 class SideBar extends React.Component {
 
@@ -28,6 +28,7 @@ class SideBar extends React.Component {
                     <SideBarOptions className={"lib-sub"} Icon={HomeOutlined} href={"/home"} title={"Home"} />
                     <SideBarOptions className={"lib-sub"} Icon={ExploreOutlined} href={"/home/about"}  title={"About"}/>
                     <SideBarOptions className={"lib-sub"} Icon={SearchOutlined} href={"/home/search"}  title={"Search"}/>
+                    <SideBarOptions className={"lib-sub"} Icon={EventNote} href={"/home/events"}  title={"Events"}/>
                 </div>
                 <div className="aside-bar-container playlist">
                     <p className={"p1"}>
