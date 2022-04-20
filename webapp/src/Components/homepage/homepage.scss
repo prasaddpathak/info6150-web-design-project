@@ -1,4 +1,4 @@
-@import "..//..//variables.scss";
+@import "./../../Utils/scss/variables";
 
 @mixin  buttonStyle {
     background-color: #fff;
@@ -28,21 +28,19 @@
     h1{
         color: white;
         font-family: 'Anton', sans-serif;
-font-family: 'Permanent Marker', cursive;
-font-family: 'Quintessential', cursive;
-font-family: 'Roboto', sans-serif;
-font-family: 'Roboto Condensed', sans-serif;
-font-family: 'Rowdies', cursive;
-font-family: 'Rubik Microbe', cursive;
-font-family: 'Rubik Moonrocks', cursive;
-font-family: 'Source Code Pro', monospace;
-font-family: 'Ultra', serif;
+        font-family: 'Permanent Marker', cursive;
+        font-family: 'Quintessential', cursive;
+        font-family: 'Roboto', sans-serif;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-family: 'Rowdies', cursive;
+        font-family: 'Rubik Microbe', cursive;
+        font-family: 'Rubik Moonrocks', cursive;
+        font-family: 'Source Code Pro', monospace;
+        font-family: 'Ultra', serif;
     }
     .button{
         @include buttonStyle();
         color: black;
-        
-       
     }
    
 }

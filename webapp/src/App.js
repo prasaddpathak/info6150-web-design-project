@@ -7,17 +7,11 @@
 */
 import React from 'react';
 import './App.scss';
-import Homepage from './Components/homepage/homepage';
-import Login from './Components/login/login';
-import Signin from './Components/signin/signin'
-import Header from './Components/Header/Header';
+import Homepage from './Components/Homepage/Homepage';
+import Login from './Components/Login/Login.jsx';
+import Signup from './Components/Signup/Signup'
 import Home from './Pages/Home/Home';
-
-
-
-
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-
 
 class App extends React.Component {
   constructor(props) {
@@ -25,19 +19,16 @@ class App extends React.Component {
   }
   render() {
     return (
-
-
     <>
-
-        <Router>
-          <Switch>
+      <Router>
+        <Switch>
           <Route exact path="/"> <Homepage/></Route>
-              <Route path="/login"> <Login/> </Route>
-              <Route path="/signin"> <Signin/> </Route>
-              <Route exact path="/home"> <Home/></Route>
-          </Switch>
+          <Route path="/login"> <Login/> </Route>
+          <Route path="/signup"> <Signup/> </Route>
+          <Route exact path="/home"> <Home/></Route>
+        </Switch>
       </Router>
-      </>
+    </>
     );
   }
 }

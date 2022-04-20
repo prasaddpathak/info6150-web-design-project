@@ -1,7 +1,7 @@
 import React,{useState } from "react";
-import './login.scss';
+import './Login.scss';
 import { useHistory } from "react-router-dom";
-import logo from './headphoneN.png'
+import logo from './../../Assets/Img/logo.png'
 import axios from "axios";
 
 
@@ -50,7 +50,7 @@ const Login =({setLoginUser}) => {
             <br/>
             <div className="button" onClick={login}>Login</div>
             <div>or</div>
-            <div className="button" onClick={()=>historydet.push("/signin")}>Signup</div>
+            <div className="button" onClick={()=>historydet.push("/signup")}>Signup</div>
 
         </div>
     )

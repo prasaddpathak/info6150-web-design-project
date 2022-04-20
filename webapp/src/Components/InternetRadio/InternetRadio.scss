@@ -1,0 +1,122 @@
+.songImg {
+    height: 300px;
+    width: 500px;
+}
+
+.row {
+    margin-top: 40px !important;
+}
+
+.audioDiv {
+    margin-top: 50px;
+}
+
+.audio {
+    width: 500px;
+}
+
+.internetRadio {
+    margin: auto;
+}
+
+.radioBox {
+    margin-left: 120px;
+    margin-top: 100px;
+}
+
+.MuiBox-root {
+    display: inline-table;
+}
+
+.MuiSlider-root {
+    color: var(--color-slider-cover) !important;
+}
+
+.MuiSlider-markLabel {
+    color: var(--color-slider-lable) !important;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.navbar {
+    background-color: red;
+}
+
+.box,
+.elem {
+    position: absolute;
+}
+
+.box {
+    width: 250px;
+    height: 180px;
+    margin-left: -90px;
+    margin-top: -20px;
+    // margin:20px;
+    cursor: pointer;
+}
+
+//   .diskStart {
+//         width:250px;
+//         height:250px;
+//         border-style:solid;
+//         border-radius:50%;
+//         border-width:60px;
+//         border-color:#983b3b #98983b #3b9859 #3b5998;
+//         animation:rotate;
+//         animation-duration:2s;
+//         animation-iteration-count:infinite;
+//         animation-timing-function:linear;
+//   }
+//   .diskStop {
+//     width:250px;
+//     height:250px;
+//     border-style:solid;
+//     border-radius:50%;
+//     border-width:60px;
+//     border-color:#983b3b #98983b #3b9859 #3b5998;
+// }
+
+/* .box:hover {
+        animation-name:spinx;
+        animation-duration:4s;
+        transform-origin:50% 50%;
+        animation-iteration-count:infinite;
+        animation-timing-function:linear;
+  } */
+
+@keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+
+/* @keyframes spinx {
+        from { 	-webkit-transform:rotatex(0deg); }
+    to { -webkit-transform:rotatex(360deg); }
+  } */
+
+
+/* body { transition: background 4s }
+  body:hover { background: #000; } */
+
+p {
+    position: absolute;
+    top: 6px;
+    left: 256px;
+    font-size: 72px;
+    color: #dadada;
+    text-decoration: none;
+    font-family: sans-serif;
+}

@@ -1,11 +1,24 @@
 import React from "react";
-import './homepage.scss'
+import './Homepage.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeadphonesSimple } from '@fortawesome/free-solid-svg-icons';
+import { faCircleArrowRight} from '@fortawesome/free-solid-svg-icons';
+
+import { useHistory } from "react-router-dom";
 
 const Homepage =() => {
+
+    const historydet = useHistory();
     return (
         <div className="homepage">
-            <h1>Hello !! Homepage </h1>
-            <div className="button">Logout</div>
+            <h1 className="animate__animated animate__pulse animate__infinite"> 
+                <FontAwesomeIcon icon={faHeadphonesSimple}> </FontAwesomeIcon>
+                    Welcome to AUX!! 
+            </h1>
+            <div className="button" onClick={()=>historydet.push("/login")}>
+                Start Listening 
+            <FontAwesomeIcon icon={faCircleArrowRight}> </FontAwesomeIcon>
+             </div>
         </div>
     )
 
