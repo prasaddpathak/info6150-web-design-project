@@ -7,19 +7,34 @@
 */
 import React from 'react';
 import './App.scss';
+import Homepage from './Components/homepage/homepage';
+import Login from './Components/login/login';
+import Signin from './Components/signin/signin'
+import Header from './Components/Header/Header';
 import Home from './Pages/Home/Home';
+
+
+
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-class App extends React.Component {
 
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
-      <>
+
+
+    <>
+
         <Router>
           <Switch>
-              {/* <Route path="/" exact component={Login}/> */}
-              <Route path="/home" component={Home}/>
+          <Route exact path="/"> <Homepage/></Route>
+              <Route path="/login"> <Login/> </Route>
+              <Route path="/signin"> <Signin/> </Route>
+              <Route exact path="/home"> <Home/></Route>
           </Switch>
       </Router>
       </>
