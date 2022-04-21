@@ -3,7 +3,7 @@
     NEU ID:     002920687
     Email:      ghorpade.t@northeastern.edu
     Subject:    INFO6150 - Web Design and UX
-    Purpose:    Javascript file for the Main App React component
+    Purpose:    Javascript file to display all music components in Grid format WRT URL
 */
 
 import React from "react"
