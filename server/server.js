@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import bcrypt from 'bcryptjs';
 
 const app = express()
 app.use(express.json())
@@ -17,10 +18,23 @@ mongoose.connect("mongodb+srv://admin:admin@cluster0.tybff.mongodb.net/", {
 
 //preparing model schema for signup
 const userSchema = new mongoose.Schema({
-    name: String,
-    contactNo: String,
-    email: String,
-    password: String
+    name:{
+        type:String,
+        required:true
+    },
+    contactNo:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    
 })
 
 const User = new mongoose.model("User", userSchema)
@@ -98,11 +112,14 @@ app.put("/updatePDetails", (req, res) => {
 })
 
 app.post("/signin", (req, res) => {
-    const { name, email, password } = req.body
+    const { name, email, password:hasplaintext,contactNo} = req.body
+    const password= new bcrypt.hashSync(hasplaintext,10);
+
     User.findOne({ email: email }, (err, user) => {
         if (user) {
             res.send({ message: "User already registerd" })
-        } else {
+        } else 
+        {
             const user = new User({
                 name,
                 email,
@@ -122,6 +139,6 @@ app.post("/signin", (req, res) => {
 
 })
 
-app.listen(9008, () => {
-    console.log("BE started at port 9008")
+app.listen(9001, () => {
+    console.log("BE started at port 9001")
 })
