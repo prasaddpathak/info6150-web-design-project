@@ -7,11 +7,12 @@
 */
 import React from 'react';
 import './App.scss';
-import Homepage from './Components/Homepage/Homepage';
-import Login from './Components/Login/Login.jsx';
+import Homepage from './Components/homepage/homepage';
+import Login from './Components/login/login.jsx';
 import Signup from './Components/Signup/Signup'
 import Home from './Pages/Home/Home';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {ThemeContext, themes} from './api/Theme';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class App extends React.Component {
   }
   render() {
     return (
-    <>
+    <ThemeContext.Provider value={themes.light}>
       <Router>
         <Switch>
           <Route exact path="/"> <Homepage/></Route>
@@ -28,7 +29,7 @@ class App extends React.Component {
           <Route exact path="/home"> <Home/></Route>
         </Switch>
       </Router>
-    </>
+    </ThemeContext.Provider>
     );
   }
 }

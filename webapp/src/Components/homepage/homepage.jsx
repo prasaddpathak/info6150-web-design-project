@@ -1,5 +1,5 @@
 import React from "react";
-import './Homepage.scss';
+import './homepage.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeadphonesSimple } from '@fortawesome/free-solid-svg-icons';
 import { faCircleArrowRight} from '@fortawesome/free-solid-svg-icons';
