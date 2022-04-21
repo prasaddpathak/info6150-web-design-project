@@ -1,5 +1,5 @@
 import {combineReducers} from "redux";
-import musicReducer from "./musicReducer";
+import musicReducer from "./music-reducer.js";
 
 const reducers = combineReducers({
     musicReducer,
