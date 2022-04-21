@@ -7,7 +7,7 @@ import React from 'react';
 import './Home.scss';
 import Header from '../../Components/Header/Header';
 import NavBar from '../../Components/NavBar/NavBar';
-import CardContainer from '../../Components/MusicContainer/CardContainer'; 
+import CardContainer from '../../Components/MusicContainer/CardContainer';
 import InternetRadio from '../../Components/InternetRadio/InternetRadio';
 import MusicPlaying from '../../Components/MusicPlaying/MusicPlaying';
 
@@ -20,21 +20,21 @@ class Home extends React.Component {
 
   render() {
     return (
-     
-      <div className={"home-container"}> 
+
+      <div className={"home-container"}>
         <Header></Header>
         <section className={"home-music-container"}>
           <div className="sidebar-home">
-              <NavBar/>
+            <NavBar />
           </div>
           <div className="main-home">
-              <CardContainer />
-              {/* <InternetRadio /> */}
-              {/* <MusicPlaying /> */}
+            {/* <CardContainer /> */}
+            {/* <InternetRadio /> */}
+            <MusicPlaying />
           </div>
         </section>
       </div>
-      
+
     );
   }
 }

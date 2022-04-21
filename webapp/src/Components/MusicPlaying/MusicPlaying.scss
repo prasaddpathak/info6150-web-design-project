@@ -59,7 +59,7 @@
 .diskStart {
     width: 255px;
     height: 255px;
-    background-image: url('../../Assets/Img/songImage.jpg');
+    background-image: url('../../Assets/Img/songDisk.png');
     animation: rotate;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -70,7 +70,7 @@
 .diskStop {
     width: 255px;
     height: 255px;
-    background-image: url('../../Assets/Img/songImage.jpg');
+    background-image: url('../../Assets/Img/songDisk.png');
     border-radius: 50%;
     // border-color:#983b3b #98983b #3b9859 #3b5998;
 }
@@ -112,10 +112,10 @@
   body:hover { background: #000; } */
 
 p {
-    // position: absolute;
-    // top: 6px;
-    // left: 256px;
-    // font-size: 72px;
+    position: absolute;
+    top: 6px;
+    left: 256px;
+    font-size: 72px;
     color: #dadada;
     text-decoration: none;
     font-family: sans-serif;
