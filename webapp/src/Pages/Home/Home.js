@@ -9,6 +9,8 @@ import React from 'react';
 import './Home.scss';
 import Header from '../../Components/Header/Header';
 import NavBar from '../../Components/NavBar/NavBar';
+import CardContainer from '../../Components/MusicContainer/CardContainer'; 
+
 
 class Home extends React.Component {
 
@@ -18,6 +20,7 @@ class Home extends React.Component {
 
   render() {
     return (
+     
       <div className={"home-container"}> 
         <Header></Header>
         <section className={"home-music-container"}>
@@ -25,12 +28,11 @@ class Home extends React.Component {
               <NavBar/>
           </div>
           <div className="main-home">
-              {/* {
-                  Page
-              } */}
+              <CardContainer />
           </div>
         </section>
       </div>
+      
     );
   }
 }
