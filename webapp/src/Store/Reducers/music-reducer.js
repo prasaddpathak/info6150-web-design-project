@@ -1,4 +1,4 @@
-import musicDB from "../db/music";
+import musicDB from "../../Utils/js/music.js";
 
 export const initialState = {
     playlists: musicDB,

@@ -59,7 +59,7 @@
 .diskStart {
     width: 255px;
     height: 255px;
-    background-image: url('../../songDisk.png');
+    background-image: url('../../Assets/Img/songImage.jpg');
     animation: rotate;
     animation-duration: 2s;
     animation-iteration-count: infinite;
@@ -70,7 +70,7 @@
 .diskStop {
     width: 255px;
     height: 255px;
-    background-image: url('../../songDisk.png');
+    background-image: url('../../Assets/Img/songImage.jpg');
     border-radius: 50%;
     // border-color:#983b3b #98983b #3b9859 #3b5998;
 }

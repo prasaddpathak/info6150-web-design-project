@@ -1,8 +1,10 @@
 import React from 'react'
-import Song from '../../song.mp3';
-import songImg from '../../songImage.jpg';
+import Song from '../../Assets/Audio/song.mp3';
+import songImg from '../../Assets/Img/songImage.jpg';
 import { Link } from 'react-router-dom';
 import './MusicPlaying.scss'
+import song from '../../Assets/Audio/song.mp3'
+
 class MusicPlaying extends React.Component {
     constructor(props) {
         super(props);
@@ -33,7 +35,8 @@ class MusicPlaying extends React.Component {
                                 controls
                                 onPlay={this.startSong}
                                 onPause={this.pauseSong}
-                                src='http://youtu.be/qJT0mc3q6Lg'>
+                                // src='http://youtu.be/qJT0mc3q6Lg'>
+                                src= {song}>
                                 <code>audio</code> element.
                             </audio>
                         </div>

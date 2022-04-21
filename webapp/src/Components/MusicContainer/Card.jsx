@@ -10,7 +10,7 @@ import React, { useEffect, useState } from 'react';
 import './Card.scss';
 import PlayCircleFilledWhiteIcon from "@material-ui/icons/PlayCircleFilledWhite";
 import { useDispatch } from "react-redux";
-import { increaseTimesPlayed, setCurrentPlaying } from "../../actions/actions";
+import { increaseTimesPlayed, setCurrentPlaying } from "../../Store/Actions/music-actions.js";
 import SongName from "./SongName";
 import { Skeleton } from "@material-ui/lab";
 import Box from "@material-ui/core/Box";

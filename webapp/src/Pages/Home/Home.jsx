@@ -10,6 +10,8 @@ import './Home.scss';
 import Header from '../../Components/Header/Header';
 import NavBar from '../../Components/NavBar/NavBar';
 import CardContainer from '../../Components/MusicContainer/CardContainer'; 
+import InternetRadio from '../../Components/InternetRadio/InternetRadio';
+import MusicPlaying from '../../Components/MusicPlaying/MusicPlaying';
 
 
 class Home extends React.Component {
@@ -28,7 +30,9 @@ class Home extends React.Component {
               <NavBar/>
           </div>
           <div className="main-home">
-              <CardContainer />
+              {/* <CardContainer /> */}
+              <InternetRadio />
+              {/* <MusicPlaying /> */}
           </div>
         </section>
       </div>
