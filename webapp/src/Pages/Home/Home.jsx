@@ -1,7 +1,5 @@
 /*
-    Author:     Prasad A. Pathak
-    NEU ID:     002925486
-    Email:      pathak.pra@northeastern.edu
+    Author:     Web Of Lies
     Subject:    INFO6150 - Web Design and UX
     Purpose:    Javascript file for the Main App React component
 */
@@ -30,8 +28,8 @@ class Home extends React.Component {
               <NavBar/>
           </div>
           <div className="main-home">
-              {/* <CardContainer /> */}
-              <InternetRadio />
+              <CardContainer />
+              {/* <InternetRadio /> */}
               {/* <MusicPlaying /> */}
           </div>
         </section>

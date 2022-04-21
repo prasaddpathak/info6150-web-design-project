@@ -1,11 +1,9 @@
 import React from 'react'
-import Song from '../../Assets/Audio/song.mp3';
-import songImg from '../../Assets/Img/songImage.jpg';
 import { Box } from '@material-ui/core';
 import { Slider } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import './InternetRadio.scss'
-
+import { RadioBrowserApi } from "radio-browser-api"
 class InternetRadio extends React.Component {
     constructor(props) {
         super(props);
@@ -13,7 +11,10 @@ class InternetRadio extends React.Component {
             start: false,
             show: false,
             stations: [101.8, 98.3],
+            currantStation: {},
+            stationData: {},
             frequencys: [
+
                 {
                     value: 70.0,
                     label: "70.0hz"
@@ -35,15 +36,46 @@ class InternetRadio extends React.Component {
                     label: "110.0hz"
                 },
             ]
-        }
-    }
 
+        }
+
+    }
+    // Radio Api called for setting up the country   
+    componentDidMount() {
+
+        this.setupApi("country")
+
+
+        // return stations
+    }
+    //Radio Api setting fucntion made to see in the browser    
+    setupApi = async stationFilter => {
+        const api = new RadioBrowserApi(fetch.bind(window), "My Radio App")
+        let obj = {}
+        let start = 70
+        const stations = await api
+            .searchStations({
+                language: "english",
+                tag: stationFilter,
+                limit: 5,
+            })
+            .then(data => {
+                data.map((res, i) => {
+                    obj[String(this.state.frequencys[i].value)] = res
+                })
+                this.setState({ stationData: obj })
+                console.log(this.state.stationData)
+            })
+    }
+    //Disc has to be start as running while playing the music
     startSong = () => {
         this.setState({ start: true })
     }
+    //Disc has to be pause as running while playing the music    
     pauseSong = () => {
         this.setState({ start: false })
     }
+    // Rdio station port has to be visible as value(ex:- 70.0,80.0 etc)
     valuetext = (value) => {
         // console.log(this.state.stations,value)
         // if(this.state.stations.indexOf(value) != -1){
@@ -53,14 +85,16 @@ class InternetRadio extends React.Component {
         // }
         return `${value}hz`;
     }
+    //Changestation  fucntion is made for changing the radio port and set the value is true for defined port 
 
     changeStation = (event, value) => {
-        console.log(this.state.stations, value, this.state.stations.indexOf(value))
-        if (this.state.stations.indexOf(value) != -1) {
-            this.setState({ show: true })
-        } else {
-            this.setState({ show: false, start: false })
+        this.setState({ show: false, start: false })
+        console.log(value)
+        console.log(this.state.stationData)
+        if (this.state.stationData[value]) {
 
+            this.setState({ show: true })
+            this.setState({ currantStation: this.state.stationData[value] })
         }
     }
 
@@ -70,6 +104,9 @@ class InternetRadio extends React.Component {
                 <div className='row'>
                     <div className='internetRadio col-md-10 offset-md-2s' >
                         <div className="box"><div className={this.state.start ? "diskStart" : 'diskStop'}></div></div>
+                        <div>
+                            {(this.state.currantStation.favicon) ? <img className='songImg' src={this.state.currantStation.favicon} /> : null}
+                        </div>
                         <div className='radioBox'>
                             <Box sx={{ width: 600 }}>
                                 <Slider
@@ -91,7 +128,7 @@ class InternetRadio extends React.Component {
                                     controls
                                     onPlay={this.startSong}
                                     onPause={this.pauseSong}
-                                    src={Song}>
+                                    src={this.state.currantStation.urlResolved}>
                                     <code>audio</code> element.
 
                                 </audio> : null}
@@ -101,7 +138,7 @@ class InternetRadio extends React.Component {
                         <Link to={"/AccountSetting"}>Account</Link>
                     </div>
                 </div>
-            </React.Fragment>
+            </React.Fragment >
         );
     }
 }
