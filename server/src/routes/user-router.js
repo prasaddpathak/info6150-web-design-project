@@ -7,6 +7,9 @@ router.route('/user')
     .post(userController.post)
     .get(userController.index);
 
+router.route('/login')
+    .get(userController.login)
+
 router.route('/user/:id')
     .get(userController.get)
     .put(userController.update)

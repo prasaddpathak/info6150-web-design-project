@@ -63,3 +63,24 @@ export const remove = async (request, response) => {
         utils.setErrorResponse(error, response);
     }
 }
+
+export const login = async (request, response) => {
+    try {
+        const { email, password } = request.body
+        const user = await userService.checkPassword(email);
+        console.log(user);
+        if (user) // if the user is already present
+        {
+            if (password === user.password) {
+                utils.setSuccessResponse({message : `Successfully Logged In`},response);
+            } else {
+                utils.setSuccessResponse({message : `Password Did not match`},response);
+            }
+        } else //if user does not exist
+        {
+            utils.setSuccessResponse({message : `User does not exist`},response);
+        }
+    }catch (error) {
+        utils.setErrorResponse(error, response);
+    }
+}
