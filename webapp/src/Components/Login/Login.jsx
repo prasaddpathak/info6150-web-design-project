@@ -1,58 +1,56 @@
-import React, { useState } from "react";
+import React,{useState } from "react";
 import './Login.scss';
 import { useHistory } from "react-router-dom";
 import logo from './../../Assets/Img/logo.png';
 import axios from "axios";
 
 
-const Login = ({ setLoginUser }) => {
-    //declaring user state woth name,email addresses etc
-    const [user, setUser] = useState({
-        email: "",
-        password: "",
-
-    })
-
-    //using the history of singups
-    const historydet = useHistory()
-
-    const handleChange = e => {
-
-        const { name, value } = e.target;
-        // console.log({name,value}); 
-        // till here we got the name and the value of each state and now we are going to use setUser to set the state
-        setUser({
-            ...user,
-            [name]: value  // when a user enter his name then this will keep his name in name, and will put the rest of things in ...user 
+const Login =({setLoginUser}) => {
+        //declaring user state woth name,email addresses etc
+        const [user, setUser]=useState({
+            email:"",
+            password:"",
+           
         })
-    }
 
-    const login = () => {
-        axios.post("http://localhost:9008/login", user)
-            .then(res => {
+        //using the history of singups
+        const historydet = useHistory()
+    
+        const handleChange= e =>{
+            
+            const{name,value} =e.target;
+            // console.log({name,value}); 
+            // till here we got the name and the value of each state and now we are going to use setUser to set the state
+            setUser({
+                ...user,
+                [name]:value  // when a user enter his name then this will keep his name in name, and will put the rest of things in ...user 
+            })
+        }
+
+        const login=()=>{
+            axios.post("http://localhost:9002/login/",user)
+            .then(res=>{
                 alert(res.data.message)
-                sessionStorage.setItem('userID', res.data.userID)
-                console.log(res)
                 setLoginUser(res.data.user)
-                historydet.push("/")
+                historydet.get("/")
             })
 
-    }
+        }
     return (
-
+        
 
         <div className="login">
-
-            <img height="35%" className="image animate__animated animate__heartBeat animate__repeat-3" src={logo} alt="app icon" />
+           
+            <img height="35%" className="image animate__animated animate__heartBeat animate__repeat-3" src={logo} alt="app icon"/>
             <h1>On the aux</h1>
-            {console.log("user", user)}
+            {console.log("user",user)}
             <input type="text" name="email" value={user.email} placeholder="Enter your email" onChange={handleChange}></input>
-            <br />
+            <br/>
             <input type="text" name="password" value={user.password} placeholder="Enter your password" onChange={handleChange}></input>
-            <br />
+            <br/>
             <div className="button" onClick={login}>Login</div>
             <div>or</div>
-            <div className="button" onClick={() => historydet.push("/signup")}>Signup</div>
+            <div className="button" onClick={()=>historydet.push("/signup")}>Signup</div>
 
         </div>
     )

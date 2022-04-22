@@ -1,5 +1,6 @@
 import * as userService from './../services/user-services.js';
 import * as utils from './../helpers/utils.js';
+import bcrypt from 'bcrypt';
 
 export const post = async(request, response) => {
     try {
@@ -81,6 +82,18 @@ export const login = async(request, response) => {
         {
             utils.setSuccessResponse({ message: `User does not exist` }, response);
         }
+    } catch (error) {
+        utils.setErrorResponse(error, response);
+    }
+}
+
+export const getPlaylists = async (request,response) => {
+    try {
+        const id = request.params.id;
+        console.log(`Getting playlists for: ${id}`);
+        const user = await userService.getPlaylistsForAUser(id);
+        utils.setSuccessResponse(user,response);
+
     } catch (error) {
         utils.setErrorResponse(error, response);
     }

@@ -11,13 +11,20 @@ const Schema = new mongoose.Schema({
         index: true,
         unique: true
     },
-    password : {
+    contactNo : {
         type: String,
         required: 'Phone number is requried.'
     },
-    contactNo: {
+    password: {
         type: String,
     },
+    playlists: [{  
+        playlist_name : String,
+        playlist_details : [{
+            song_name: String,
+            song_type : String
+        }]
+    }],
     createdDate: {
         type: Date,
         default: Date.now

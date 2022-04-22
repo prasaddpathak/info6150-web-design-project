@@ -1,0 +1,15 @@
+.create-playlist-container{
+    height: 90vh;
+    overflow-y: auto;
+    background-color: beige;
+    h1 {
+        padding: 50px;
+        text-align: center;
+    }
+    form {
+        padding: 50px;
+        input {
+            margin-left: 20px;
+        }
+    }
+}
