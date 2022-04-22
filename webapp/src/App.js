@@ -14,6 +14,7 @@ import Home from './Pages/Home/Home.jsx';
 import Event from './Pages/EventsPage/EventsPage.jsx';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ThemeContext, themes } from './Utils/js/theme.js';
+import InternetRadio from './Components/InternetRadio/InternetRadio';
 
 class App extends React.Component {
     constructor(props) {
@@ -26,14 +27,17 @@ class App extends React.Component {
             Router >
             <
             Switch >
+
             <
             Route exact path = "/" > < Homepage / > < /Route> <
             Route path = "/login" > < Login / > < /Route> <
             Route path = "/signup" > < Signup / > < /Route> <
             Route exact path = "/home" > < Home / > < /Route> <
             Route path = "/event" > < Event / > < /Route> < /
-            Switch > <
-            /Router> < /
+            Switch >
+            <
+            Route exact path = "/home/radio" > < InternetRadio / > < /Route>< /
+            Router > < /
             ThemeContext.Provider >
         );
     }

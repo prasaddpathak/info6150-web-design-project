@@ -48,7 +48,7 @@ export const update = async(request, response) => {
         const updated = {...request.body };
         updated.id = id;
         const user = await userService.update(updated);
-        console.log('check', update)
+        console.log('check', user)
         utils.setSuccessResponse(user, response);
     } catch (error) {
         utils.setErrorResponse(error, response);
@@ -73,7 +73,7 @@ export const login = async(request, response) => {
         if (user) // if the user is already present
         {
             if (password === user.password) {
-                utils.setSuccessResponse({ message: `Successfully Logged In`, userID: user.email }, response);
+                utils.setSuccessResponse({ message: `Successfully Logged In`, userID: user._id }, response);
             } else {
                 utils.setSuccessResponse({ message: `Password Did not match` }, response);
             }

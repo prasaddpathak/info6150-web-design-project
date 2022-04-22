@@ -13,6 +13,8 @@
 .changeTheme {
     display: flex;
 }
+
+
 /* .AccSetting {
 background: var(--color-header-bg);
 }
@@ -27,7 +29,7 @@ background: var(--color-header-bg);
 
 .main {
     //sbackground-image: var(--bg-image);
-    background-image: linear-gradient(#E56B6F, #6D597A);
+    background-image: var(--bgImage);
     margin-left: 30%;
     display: flex;
     flex-direction: column;
@@ -37,7 +39,6 @@ background: var(--color-header-bg);
     height: 45vw;
     border-radius: 20px;
     box-shadow: 0 0 15px 5px black;
-    background-image: linear-gradient(#E56B6F, #6D597A);
     // position: relative;
     // opacity: 0.9;
     // font-size: 1.5rem;

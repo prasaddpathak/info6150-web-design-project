@@ -30,8 +30,8 @@ class AccountSetting extends React.Component {
         e.preventDefault()
         let emailID = sessionStorage.getItem('userID')
         if (this.state.passwordUpdate.password == this.state.passwordUpdate.repassword) {
-            let body = { ...this.state.passwordUpdate }
-            axios.put('http://localhost:9008/user/id' + emailID, body).then(res => {
+            let body = { password: this.state.passwordUpdate.password }
+            axios.put('http://localhost:9008/user/' + emailID, body).then(res => {
                 this.setState({ passwordMsg: "Password Updated Successfully" })
             }).catch(err => {
                 this.setState({ passwordMsg: "Server Error!" })
@@ -48,7 +48,7 @@ class AccountSetting extends React.Component {
         if (this.state.pDetailsMsg == "") {
             let emailID = sessionStorage.getItem('userID')
             let body = { ...this.state.pDetails }
-            axios.put('http://localhost:9008/users/' + emailID, body).then(res => {
+            axios.put('http://localhost:9008/user/' + emailID, body).then(res => {
                 this.setState({ pDetailsMsg: "Personal Details Updated Successfully" })
             }).catch(err => {
                 this.setState({ pDetailsMsg: "Server Error!" })
