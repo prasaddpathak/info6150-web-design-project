@@ -7,6 +7,7 @@
 */
 import React from 'react';
 import './App.scss';
+import { lightTheme, darkTheme } from "./Utils/js/theme";
 import Homepage from './Pages/HomePage/HomePage';
 import Login from './Components/login/login.jsx';
 import Signup from './Components/Signup/Signup.jsx'
@@ -19,6 +20,14 @@ import InternetRadio from './Components/InternetRadio/InternetRadio';
 class App extends React.Component {
     constructor(props) {
         super(props);
+    }
+    componentDidMount() {
+        const theme = lightTheme;
+        console.log("main", theme)
+        Object.keys(theme).forEach((key) => {
+            const value = theme[key];
+            document.documentElement.style.setProperty(key, value);
+        });
     }
     render() {
         return ( <

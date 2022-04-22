@@ -1,5 +1,5 @@
 import React from "react";
-import Toggle from "./Toggle/Toggle";
+import Toggle from "../../Utils/js/toggle";
 import './AccountSetting.scss'
 import { Link } from "react-router-dom";
 import axios from 'axios'
