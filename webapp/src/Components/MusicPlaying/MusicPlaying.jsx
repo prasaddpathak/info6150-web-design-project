@@ -26,25 +26,26 @@ class MusicPlaying extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className='row'>
-                    <div className='internetRadio col-md-10 offset-md-2s' >
-                        <div className="box"><div className={this.state.start ? "diskStart" : 'diskStop'}></div></div>
-                        <div>
-                            <img className='songImg' src={songImg} />
+                <div className='musicMain'>
+                    <div className='row'>
+                        <div className='internetRadio col-md-10 offset-md-2s' >
+                            <div className="box"><div className={this.state.start ? "diskStart" : 'diskStop'}></div></div>
+                            <div>
+                                <img className='songImgMusic' src={songImg} />
+                            </div>
+                            <div className='audioDiv' >
+                                <audio
+                                    className='audio'
+                                    controls
+                                    onPlay={this.startSong}
+                                    onPause={this.pauseSong}
+                                    // src='http://youtu.be/qJT0mc3q6Lg'>
+                                    src={song}>
+                                    <code>audio</code> element.
+                                </audio>
+                            </div>
+
                         </div>
-                        <div className='audioDiv' >
-                            <audio
-                                className='audio'
-                                controls
-                                onPlay={this.startSong}
-                                onPause={this.pauseSong}
-                                // src='http://youtu.be/qJT0mc3q6Lg'>
-                                src={song}>
-                                <code>audio</code> element.
-                            </audio>
-                        </div>
-                        <Link to={"/AccountSetting"}>Account</Link><br />
-                        <Link to={"/InternetRadio"}>Radio</Link>
                     </div>
                 </div>
             </React.Fragment>

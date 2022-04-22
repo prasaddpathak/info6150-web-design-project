@@ -1,6 +1,8 @@
-.songImg {
-    height: 300px;
-    width: 500px;
+.songImgMusic {
+    height: 250px;
+    width: 395px;
+    position: relative;
+    margin-left: 280px;
 }
 
 .row {
@@ -8,11 +10,27 @@
 }
 
 .audioDiv {
-    margin-top: 50px;
+    margin-top: 60px !important;
+    margin-left: 125px;
 }
 
-.audio {
-    width: 500px;
+// .audio {
+//     margin-top: 60px !important;
+//     margin-left: 125px;
+// }
+.musicMain {
+    background-image: var(--bgImage);
+    margin-left: 16%;
+    padding: 1%;
+    /* display: flex; */
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 30vw;
+    border-radius: 20px;
+    box-shadow: 0 0 15px 5px black;
 }
 
 .internetRadio {
