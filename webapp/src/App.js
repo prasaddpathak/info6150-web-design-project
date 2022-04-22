@@ -1,7 +1,5 @@
 /*
-    Author:     Prasad A. Pathak
-    NEU ID:     002925486
-    Email:      pathak.pra@northeastern.edu
+    Author:     Web of lies
     Subject:    INFO6150 - Web Design and UX
     Purpose:    Javascript file for the Main App React component
 */
