@@ -1,7 +1,7 @@
 .dropdown{
   position: absolute !important;
   z-index: 100000;
-  top: 75px;
+  top: 10vh;
   right:7px;
   width: 20vw;
   display: flex;
@@ -20,7 +20,7 @@
   .lang-list {
     // background-color: aqua;
     :hover {
-      background-color:antiquewhite;
+      background-color:darkcyan;
     }
   }
   .button-div{
@@ -34,9 +34,6 @@
       width: 100%;
       padding: 7px;
       border: none;
-    }
-    :hover {
-      background-color:burlywood;
     }
   }
 }
