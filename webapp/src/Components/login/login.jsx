@@ -31,6 +31,8 @@ const Login = ({ setLoginUser }) => {
         axios.post("http://localhost:9008/login", user)
             .then(res => {
                 alert(res.data.message)
+                sessionStorage.setItem('userID', res.data.userID)
+                console.log(res)
                 setLoginUser(res.data.user)
                 historydet.push("/")
             })

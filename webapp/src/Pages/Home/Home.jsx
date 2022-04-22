@@ -10,7 +10,7 @@ import NavBar from '../../Components/NavBar/NavBar';
 import CardContainer from '../../Components/MusicContainer/CardContainer';
 import InternetRadio from '../../Components/InternetRadio/InternetRadio';
 import MusicPlaying from '../../Components/MusicPlaying/MusicPlaying';
-
+import AccountSetting from '../../Components/AccountSetting/AccountSetting';
 
 class Home extends React.Component {
 
@@ -30,7 +30,8 @@ class Home extends React.Component {
           <div className="main-home">
             {/* <CardContainer /> */}
             {/* <InternetRadio /> */}
-            <MusicPlaying />
+            <AccountSetting />
+            {/* <MusicPlaying /> */}
           </div>
         </section>
       </div>

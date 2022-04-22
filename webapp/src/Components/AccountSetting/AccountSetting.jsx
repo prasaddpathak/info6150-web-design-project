@@ -2,7 +2,7 @@ import React from "react";
 import Toggle from "./Toggle/Toggle";
 import './AccountSetting.scss'
 import { Link } from "react-router-dom";
-
+import axios from 'axios'
 //Define the state of the forms
 class AccountSetting extends React.Component {
     constructor(props) {
@@ -23,13 +23,48 @@ class AccountSetting extends React.Component {
 
     }
     //Detect the password change condition and state the update details
+
+    //Detect the personal details
+    submitPasswordUpdate = (e) => {
+        this.setState({ passwordMsg: "" })
+        e.preventDefault()
+        let emailID = sessionStorage.getItem('userID')
+        if (this.state.passwordUpdate.password == this.state.passwordUpdate.repassword) {
+            let body = { ...this.state.passwordUpdate }
+            axios.put('http://localhost:9008/user/id' + emailID, body).then(res => {
+                this.setState({ passwordMsg: "Password Updated Successfully" })
+            }).catch(err => {
+                this.setState({ passwordMsg: "Server Error!" })
+            })
+
+        } else {
+            this.setState({ passwordMsg: "Password Miss Match!" })
+        }
+
+
+    }
+    submitPDetailsUpdate = (e) => {
+        e.preventDefault()
+        if (this.state.pDetailsMsg == "") {
+            let emailID = sessionStorage.getItem('userID')
+            let body = { ...this.state.pDetails }
+            axios.put('http://localhost:9008/users/' + emailID, body).then(res => {
+                this.setState({ pDetailsMsg: "Personal Details Updated Successfully" })
+            }).catch(err => {
+                this.setState({ pDetailsMsg: "Server Error!" })
+                this.setTimeout(() => {
+                    this.setState({ pDetailsMsg: "" })
+                }, 500);
+            })
+        }
+    }
+
     handleChangePassword = (event) => {
         let newState = { ...this.state.passwordUpdate }
         newState[event.target.name] = event.target.value
         this.setState({ passwordUpdate: newState });
         console.log(this.state.passwordUpdate)
     };
-    //Detect the personal details
     handleChangePDetails = (event) => {
         let newState = { ...this.state.pDetails }
         if (event.target.name === 'contactNo') {
@@ -43,23 +78,7 @@ class AccountSetting extends React.Component {
         newState[event.target.name] = event.target.value
         this.setState({ pDetails: newState });
     };
-    //API is called while clicking on submit button of password changing
-    submitPasswordUpdate = (e) => {
-        e.preventDefault()
-        console.log(e)
-        this.setState({ passwordMsg: "Password Updated Successfully" })
-        setTimeout(() => {
-            this.setState({ passwordMsg: "" })
-        }, 2000)
-    }
-    //API is called while clicking on submit button of personal details
-    submitPDetailsUpdate = (e) => {
-        e.preventDefault()
-        this.setState({ pDetailsMsg: "Personal Details Updated Successfully" })
-        setTimeout(() => {
-            this.setState({ pDetailsMsg: "" })
-        }, 2000)
-    }
+
 
     render() {
         return <React.Fragment>
