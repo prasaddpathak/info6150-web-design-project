@@ -8,7 +8,7 @@ router.route('/user')
     .get(userController.index);
 
 router.route('/login')
-    .get(userController.login)
+    .post(userController.login)
 
 router.route('/user/:id')
     .get(userController.get)

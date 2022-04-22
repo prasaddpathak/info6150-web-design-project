@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import "./Signup.scss"
 import axios from "axios";
-
+import validator from 'validator';
 
 import { useHistory } from "react-router-dom"
 
@@ -25,19 +25,25 @@ const Signup = () => {
             [name]: value
         })
     }
-
+// sign up a new user with input validations
     const signin = () => {
         console.log(user);
         const { name, email, password, reEnterPassword ,contactNo} = user
-        if( name && email && password &&contactNo &&(password === reEnterPassword)){
-            
-            axios.post("http://localhost:9001/signin/", user) 
+        if( name && email && password &&contactNo &&(password === reEnterPassword))
+        {
+            if(!(validator.isEmail(email))){
+                return alert("Please enter valid email!");
+            }
+            // if(typeof name===Number){
+            //     return alert("Please enter valid name!");
+            // } //yet to apply the input validation
+            axios.post("http://localhost:9002/user", user) 
             .then( res => {
                 alert(res.data.message)
                 history.push("/login")
             })
         } else {
-            alert("invlid input")
+            alert("Please enter all the details!!")
         }
         
     }

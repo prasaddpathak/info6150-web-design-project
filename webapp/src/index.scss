@@ -1,8 +1,9 @@
 body {
   margin: 0;
-  background-image: url("..//public/pexels-sebastian-ervi-1763075\ \(2\).jpg");
+  background-color: rgb(179, 81, 81);
   background-size: cover;
-  margin-top: 20px;
+
+  // margin-top: 20px; removed by Gloria to solve the navbar margin
 }
 
 code {
