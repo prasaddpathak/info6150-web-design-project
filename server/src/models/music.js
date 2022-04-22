@@ -1,3 +1,8 @@
+/*
+    Author:     Web of lies
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    Schema for Music collection 
+*/
 import mongoose from "mongoose";
 
 const Schema = new mongoose.Schema({

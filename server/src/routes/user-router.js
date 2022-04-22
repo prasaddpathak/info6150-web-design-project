@@ -1,3 +1,8 @@
+/*
+    Author:     Web of lies
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    Provide route for all available API 
+*/
 import express from "express";
 import * as userController from './../controllers/user-controller.js';
 import * as musicController from './../controllers/music-controller.js';
