@@ -1,3 +1,8 @@
+/*
+    Author:     Web of lies
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    Provide Music API Service methods  
+*/
 import Music from './../models/music.js';
 
 export const getAllMusic = (query) => {

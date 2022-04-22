@@ -1,7 +1,5 @@
 /*
-    Author:     Trisha Ghorpade
-    NEU ID:     002920687
-    Email:      ghorpade.t@northeastern.edu
+    Author:     Web of lies
     Subject:    INFO6150 - Web Design and UX
     Purpose:    Javascript file to display each Music component with Image, Name, Music Author 
 */
