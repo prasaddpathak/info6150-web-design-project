@@ -11,11 +11,11 @@ const Schema = new mongoose.Schema({
         index: true,
         unique: true
     },
-    password : {
+    contactNo : {
         type: String,
         required: 'Phone number is requried.'
     },
-    contactNo: {
+    password: {
         type: String,
     },
     playlists: [{  

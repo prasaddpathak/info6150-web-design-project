@@ -7,11 +7,11 @@ import React from 'react';
 import './Home.scss';
 import Header from '../../Components/Header/Header';
 import NavBar from '../../Components/NavBar/NavBar';
-import CardContainer from '../../Components/MusicContainer/CardContainer'; 
+import CardContainer from '../../Components/MusicContainer/CardContainer/CardContainer'; 
 import InternetRadio from '../../Components/InternetRadio/InternetRadio';
 import MusicPlaying from '../../Components/MusicPlaying/MusicPlaying';
 import CreatePlaylist from '../../Components/CreatePlaylist/CreatePlaylist';
-
+import EventPage from '../EventsPage/EventsPage';
 
 class Home extends React.Component {
 
@@ -21,7 +21,6 @@ class Home extends React.Component {
 
   render() {
     return (
-     
       <div className={"home-container"}> 
         <Header></Header>
         <section className={"home-music-container"}>
@@ -33,10 +32,10 @@ class Home extends React.Component {
               {/* <InternetRadio /> */}
               {/* <MusicPlaying /> */}
               <CreatePlaylist />
+              {/* <EventPage/> */}
           </div>
         </section>
       </div>
-      
     );
   }
 }

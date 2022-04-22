@@ -1,7 +1,5 @@
 /*
-    Author:     Trisha Ghorpade
-    NEU ID:     002920687
-    Email:      ghorpade.t@northeastern.edu
+    Author:     Web of lies
     Subject:    INFO6150 - Web Design and UX
     Purpose:    Javascript file to display each Music component with Image, Name, Music Author 
 */
@@ -10,11 +8,11 @@ import React, { useEffect, useState } from 'react';
 import './Card.scss';
 import PlayCircleFilledWhiteIcon from "@material-ui/icons/PlayCircleFilledWhite";
 import { useDispatch } from "react-redux";
-import { increaseTimesPlayed, setCurrentPlaying } from "../../Store/Actions/music-actions.js";
-import SongName from "./SongName";
+import { increaseTimesPlayed, setCurrentPlaying } from "../../../Store/Actions/music-actions.js";
+import SongName from "../SongNames/SongName";
 import { Skeleton } from "@material-ui/lab";
 import Box from "@material-ui/core/Box";
-import first from '../MusicImg/musicpicture.jpg';
+import first from '../../MusicImg/musicpicture.jpg';
 
 function MusicCard(props) {
     const { name, img, author_name } = props.music;

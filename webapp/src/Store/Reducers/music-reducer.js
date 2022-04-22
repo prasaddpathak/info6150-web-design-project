@@ -1,7 +1,18 @@
+/*
+    Author:     Web of lies
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    Javascript file to keep count and status of common variables used in application
+*/
 import musicDB from "../../Utils/js/music.js";
 
 export const initialState = {
     playlists: musicDB,
+    // playlists: [async () => {
+    //     let axios = require('axios');
+    //     let res = await axios.get('http://localhost:9008/music');
+    //     let allmusicdb =  JSON(res);
+    //     console.log(allmusicdb);
+    //     return allmusicdb;}],
     playing:null,
     bannerOpen: false,
     search:null,
@@ -24,9 +35,9 @@ const musicReducer = (state=initialState,action) => {
                 ...state,
                 bannerOpen: action.payload
             };
-        case "INC_TIMES_PLAYED":
-            musicDB[action.payload].timesPlayed += 1;
-            return state;
+        // case "INC_TIMES_PLAYED":
+        //     musicDB[action.payload].timesPlayed += 1;
+        //     return state;
         case "SET_SEARCH_QUERY":
             return {
                 ...state,
