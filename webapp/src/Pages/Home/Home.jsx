@@ -29,8 +29,8 @@ class Home extends React.Component {
           </div>
           <div className="main-home">
             {/* <CardContainer /> */}
-            {/* <InternetRadio /> */}
-            <AccountSetting />
+            <InternetRadio />
+            {/* <AccountSetting /> */}
             {/* <MusicPlaying /> */}
           </div>
         </section>
