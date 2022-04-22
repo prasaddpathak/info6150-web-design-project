@@ -7,7 +7,7 @@ import React from 'react';
 import './Home.scss';
 import Header from '../../Components/Header/Header';
 import NavBar from '../../Components/NavBar/NavBar';
-import CardContainer from '../../Components/MusicContainer/CardContainer'; 
+import CardContainer from '../../Components/MusicContainer/CardContainer/CardContainer'; 
 import InternetRadio from '../../Components/InternetRadio/InternetRadio';
 import MusicPlaying from '../../Components/MusicPlaying/MusicPlaying';
 import EventPage from '../EventsPage/EventsPage';
@@ -29,8 +29,8 @@ class Home extends React.Component {
               <NavBar/>
           </div>
           <div className="main-home">
-              {/* <CardContainer /> */}
-              <InternetRadio />
+              <CardContainer />
+              {/* <InternetRadio /> */}
               {/* <MusicPlaying /> */}
               {/* <EventPage/> */}
           </div>

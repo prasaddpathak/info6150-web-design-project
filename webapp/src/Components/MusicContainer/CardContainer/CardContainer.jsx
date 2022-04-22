@@ -6,9 +6,9 @@
 
 import React, {useState} from "react"
 import './CardContainer.scss';
-import Card from "./Card";
+import Card from '../Card/Card';
 import { useSelector } from "react-redux";
-import Container from "./Container";
+import Container from "../Containers/Container";
 
 function MusicCardContainer() {
     let axios = require('axios');
