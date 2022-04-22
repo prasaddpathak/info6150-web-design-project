@@ -18,6 +18,13 @@ const Schema = new mongoose.Schema({
     password: {
         type: String,
     },
+    playlists: [{  
+        playlist_name : String,
+        playlist_details : [{
+            song_name: String,
+            song_type : String
+        }]
+    }],
     createdDate: {
         type: Date,
         default: Date.now

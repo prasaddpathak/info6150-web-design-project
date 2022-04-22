@@ -21,6 +21,9 @@ router.route('/user/:id')
     .put(userController.update)
     .delete(userController.remove);
 
+router.route('/user/:id/playlist')
+    .get(userController.getPlaylists)
+
 router.route('/music')
     .post(musicController.postallMusic)
     .get(musicController.allMusic);    

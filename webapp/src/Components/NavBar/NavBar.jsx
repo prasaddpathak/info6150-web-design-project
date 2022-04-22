@@ -1,16 +1,27 @@
 import React from "react";
+import axios from "axios";
 import "./NavBar.scss";
-import SideBarOptions from "./NavBarOptions/NavBarOptions";
-import {ExploreOutlined, HomeOutlined, PlaylistPlay, SearchOutlined, Radio, EventNote} from "@material-ui/icons";
+import NavBarOptions from "./NavBarOptions/NavBarOptions";
+import {ExploreOutlined, HomeOutlined, PlaylistPlay, SearchOutlined, Radio, EventNote, LibraryAdd} from "@material-ui/icons";
 
 class SideBar extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
+            playlistTags : []
         };
-        // this.handleOpenGenreList = this.handleOpenGenreList.bind(this);
-        // this.handleOpenProfile = this.handleOpenProfile.bind(this);
+    }
+
+    componentDidMount() {
+        axios.get('http://127.0.0.1:9008/user/6260db9f897199ffa4f2135e/playlist')
+        .then((response) => {
+            console.log(`Returned Playlists:  ${response.data}`);
+            const playlistsFetched = response.data.map((i,k) => <NavBarOptions className={"lib-sub"} Icon={PlaylistPlay} href={"/home/playlist/"+i}  title={i} key={k}/>);
+            this.setState({
+                playlistTags : [...playlistsFetched]
+            });
+        });
     }
 
     ElementStyle = {
@@ -25,18 +36,18 @@ class SideBar extends React.Component {
                     <p className={"p1"}>
                         <span>LIBRARY</span>
                     </p>
-                    <SideBarOptions className={"lib-sub"} Icon={HomeOutlined} href={"/home"} title={"Home"} />
-                    <SideBarOptions className={"lib-sub"} Icon={ExploreOutlined} href={"/home/about"}  title={"About"}/>
-                    <SideBarOptions className={"lib-sub"} Icon={SearchOutlined} href={"/home/search"}  title={"Search"}/>
-                    <SideBarOptions className={"lib-sub"} Icon={Radio} href={"/home/radio"}  title={"Radio"}/>
-                    <SideBarOptions className={"lib-sub"} Icon={EventNote} href={"/home/events"}  title={"Events"}/>
+                    <NavBarOptions className={"lib-sub"} Icon={HomeOutlined} href={"/home"} title={"Home"} />
+                    <NavBarOptions className={"lib-sub"} Icon={ExploreOutlined} href={"/home/about"}  title={"About"}/>
+                    <NavBarOptions className={"lib-sub"} Icon={SearchOutlined} href={"/home/search"}  title={"Search"}/>
+                    <NavBarOptions className={"lib-sub"} Icon={Radio} href={"/home/radio"}  title={"Radio"}/>
+                    <NavBarOptions className={"lib-sub"} Icon={EventNote} href={"/home/events"}  title={"Events"}/>
                 </div>
                 <div className="aside-bar-container playlist">
                     <p className={"p1"}>
                         <span>MY PLAYLIST</span>
                     </p>
-                    <SideBarOptions className={"lib-sub"} Icon={PlaylistPlay} href={"/home/playlist/instrumental"}  title={"Instrumental"}/>
-                    <SideBarOptions className={"lib-sub"} Icon={PlaylistPlay} href={"/home/playlist/electronic"}  title={"Electronic"}/>
+                    <NavBarOptions className={"lib-sub"} Icon={LibraryAdd} href={"/home/playlist"}  title={"Create a New Playlist"}/>
+                    {this.state.playlistTags}
                 </div>
             </aside>
         );
