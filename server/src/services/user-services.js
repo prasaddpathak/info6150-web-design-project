@@ -1,4 +1,5 @@
 import User from './../models/user.js';
+import {extractPlaylistNameFromUser} from '../helpers/utils.js'
 
 export const save = (newContact) => {
     const user = new User(newContact);
@@ -25,17 +26,10 @@ export const remove = (id) => {
 
 export const checkPassword = (email) => {
     return User.findOne({email : email}).exec();
-    // User.findOne({ email: email }, (err, user) => {
-    //     if (user) // if the user is already present
-    //     {
-    //         if (password === user.password) {
-    //             return "Login Successfull";
-    //         } else {
-    //             return "Password didn't match";
-    //         }
-    //     } else //if password doesnt match
-    //     {
-    //         return "User not registered";
-    //     }
-    // });
+}
+
+export const getPlaylistsForAUser = async (id) => {
+    const user = await User.findById(id).exec();
+    const playlists = extractPlaylistNameFromUser(user);
+    return playlists;
 }

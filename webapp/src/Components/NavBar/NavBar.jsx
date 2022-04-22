@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import "./NavBar.scss";
 import NavBarOptions from "./NavBarOptions/NavBarOptions";
-import {ExploreOutlined, HomeOutlined, PlaylistPlay, SearchOutlined, Radio, EventNote} from "@material-ui/icons";
+import {ExploreOutlined, HomeOutlined, PlaylistPlay, SearchOutlined, Radio, EventNote, LibraryAdd} from "@material-ui/icons";
 
 class SideBar extends React.Component {
 
@@ -46,6 +46,7 @@ class SideBar extends React.Component {
                     <p className={"p1"}>
                         <span>MY PLAYLIST</span>
                     </p>
+                    <NavBarOptions className={"lib-sub"} Icon={LibraryAdd} href={"/home/playlist"}  title={"Create a New Playlist"}/>
                     {this.state.playlistTags}
                 </div>
             </aside>

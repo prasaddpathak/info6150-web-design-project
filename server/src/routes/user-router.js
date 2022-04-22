@@ -15,4 +15,7 @@ router.route('/user/:id')
     .put(userController.update)
     .delete(userController.remove);
 
+router.route('/user/:id/playlist')
+    .get(userController.getPlaylists)
+
 export default router;
