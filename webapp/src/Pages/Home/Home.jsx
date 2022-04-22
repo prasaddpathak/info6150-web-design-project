@@ -10,6 +10,7 @@ import NavBar from '../../Components/NavBar/NavBar';
 import CardContainer from '../../Components/MusicContainer/CardContainer'; 
 import InternetRadio from '../../Components/InternetRadio/InternetRadio';
 import MusicPlaying from '../../Components/MusicPlaying/MusicPlaying';
+import EventPage from '../EventsPage/EventsPage';
 
 
 class Home extends React.Component {
@@ -28,9 +29,10 @@ class Home extends React.Component {
               <NavBar/>
           </div>
           <div className="main-home">
-              <CardContainer />
-              {/* <InternetRadio /> */}
+              {/* <CardContainer /> */}
+              <InternetRadio />
               {/* <MusicPlaying /> */}
+              {/* <EventPage/> */}
           </div>
         </section>
       </div>

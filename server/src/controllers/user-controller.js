@@ -1,9 +1,13 @@
 import * as  userService from './../services/user-services.js';
 import * as utils from './../helpers/utils.js';
+import bcrypt from 'bcrypt';
 
 export const post = async (request,response) => {
     try {
-        const payload = request.body;
+        const payload = request.body; 
+        // const hash=bcrypt.hashSync(password,10);
+        // console.log(hash);
+
         const user = await userService.save(payload); 
         utils.setSuccessResponse(user, response);
     }  catch (error) {
