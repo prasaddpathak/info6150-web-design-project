@@ -7,7 +7,7 @@ export const save = (newContact) => {
 }
 
 export const search = (query) => {
-    const params = {...query};
+    const params = {...query };
     return User.find(params).exec();
 }
 
@@ -17,7 +17,8 @@ export const get = (id) => {
 
 export const update = (updatedUser) => {
     updatedUser.modifiedDate = new Date();
-    return User.findByIdAndUpdate(updatedUser.id,updatedUser).exec();
+    console.log("**", updatedUser.id, updatedUser)
+    return User.findByIdAndUpdate(updatedUser.id, updatedUser).exec();
 }
 
 export const remove = (id) => {

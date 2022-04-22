@@ -1,8 +1,8 @@
 import React from "react";
-import Toggle from "./Toggle/Toggle";
+import Toggle from "../../Utils/js/toggle";
 import './AccountSetting.scss'
 import { Link } from "react-router-dom";
-
+import axios from 'axios'
 //Define the state of the forms
 class AccountSetting extends React.Component {
     constructor(props) {
@@ -23,13 +23,48 @@ class AccountSetting extends React.Component {
 
     }
     //Detect the password change condition and state the update details
+
+    //Detect the personal details
+    submitPasswordUpdate = (e) => {
+        this.setState({ passwordMsg: "" })
+        e.preventDefault()
+        let emailID = sessionStorage.getItem('userID')
+        if (this.state.passwordUpdate.password == this.state.passwordUpdate.repassword) {
+            let body = { password: this.state.passwordUpdate.password }
+            axios.put('http://localhost:9008/user/' + emailID, body).then(res => {
+                this.setState({ passwordMsg: "Password Updated Successfully" })
+            }).catch(err => {
+                this.setState({ passwordMsg: "Server Error!" })
+            })
+
+        } else {
+            this.setState({ passwordMsg: "Password Miss Match!" })
+        }
+
+
+    }
+    submitPDetailsUpdate = (e) => {
+        e.preventDefault()
+        if (this.state.pDetailsMsg == "") {
+            let emailID = sessionStorage.getItem('userID')
+            let body = { ...this.state.pDetails }
+            axios.put('http://localhost:9008/user/' + emailID, body).then(res => {
+                this.setState({ pDetailsMsg: "Personal Details Updated Successfully" })
+            }).catch(err => {
+                this.setState({ pDetailsMsg: "Server Error!" })
+                this.setTimeout(() => {
+                    this.setState({ pDetailsMsg: "" })
+                }, 500);
+            })
+        }
+    }
+
     handleChangePassword = (event) => {
         let newState = { ...this.state.passwordUpdate }
         newState[event.target.name] = event.target.value
         this.setState({ passwordUpdate: newState });
         console.log(this.state.passwordUpdate)
     };
-    //Detect the personal details
     handleChangePDetails = (event) => {
         let newState = { ...this.state.pDetails }
         if (event.target.name === 'contactNo') {
@@ -43,23 +78,7 @@ class AccountSetting extends React.Component {
         newState[event.target.name] = event.target.value
         this.setState({ pDetails: newState });
     };
-    //API is called while clicking on submit button of password changing
-    submitPasswordUpdate = (e) => {
-        e.preventDefault()
-        console.log(e)
-        this.setState({ passwordMsg: "Password Updated Successfully" })
-        setTimeout(() => {
-            this.setState({ passwordMsg: "" })
-        }, 2000)
-    }
-    //API is called while clicking on submit button of personal details
-    submitPDetailsUpdate = (e) => {
-        e.preventDefault()
-        this.setState({ pDetailsMsg: "Personal Details Updated Successfully" })
-        setTimeout(() => {
-            this.setState({ pDetailsMsg: "" })
-        }, 2000)
-    }
+
 
     render() {
         return <React.Fragment>
@@ -71,11 +90,11 @@ class AccountSetting extends React.Component {
                         <form onSubmit={this.submitPasswordUpdate} className="changePasswordForm form-inline">
                             <div className="form-group mb-2">
                                 <label className="col-md-4"  >Enter New Password</label>
-                                <input onChange={this.handleChangePassword} className="col-md-6 form-control" type="password" name="password" value={this.state.passwordUpdate.password} placeholder="Password" />
+                                <input onChange={this.handleChangePassword} className=" form-control" type="password" name="password" value={this.state.passwordUpdate.password} placeholder="Password" />
                             </div>
                             <div className="form-group mb-2">
                                 <label className="col-md-4"  >Renter New Password</label>
-                                <input onChange={this.handleChangePassword} className="col-md-6 form-control" type="password" name="repassword" value={this.state.passwordUpdate.repassword} placeholder="Password" />
+                                <input onChange={this.handleChangePassword} className=" form-control" type="password" name="repassword" value={this.state.passwordUpdate.repassword} placeholder="Password" />
                             </div>
                             <button type="submit" className="btn btn-block btn-primary mb-2">Submit</button>
                         </form>
@@ -88,11 +107,11 @@ class AccountSetting extends React.Component {
                         <form onSubmit={this.submitPDetailsUpdate} className="changePasswordForm form-inline">
                             <div className="form-group mb-2">
                                 <label className="col-md-4"  >Full Name</label>
-                                <input onChange={this.handleChangePDetails} className="col-md-6 form-control" name="name" type="text" value={this.state.pDetails.name} placeholder="Enter Name" />
+                                <input onChange={this.handleChangePDetails} className=" form-control" name="name" type="text" value={this.state.pDetails.name} placeholder="Enter Name" />
                             </div>
                             <div className="form-group mb-2">
                                 <label className="col-md-4"  >Contact Nmber</label>
-                                <input onChange={this.handleChangePDetails} className="col-md-6 form-control" name="contactNo" type="text" value={this.state.pDetails.contactNo} placeholder="Enter Contact Number" />
+                                <input onChange={this.handleChangePDetails} className=" form-control" name="contactNo" type="text" value={this.state.pDetails.contactNo} placeholder="Enter Contact Number" />
                             </div>
                             <button type="submit" className="btn btn-primary mb-2 lg">Submit</button>
                         </form>
@@ -106,7 +125,7 @@ class AccountSetting extends React.Component {
                             <Toggle></Toggle>
                         </div>
                     </div>
-                    <Link to={"/MusicPlaying"}>Music</Link>
+
                 </div>
             </div>
 

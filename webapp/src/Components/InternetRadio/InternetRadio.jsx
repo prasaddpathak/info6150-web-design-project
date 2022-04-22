@@ -95,17 +95,24 @@ class InternetRadio extends React.Component {
 
             this.setState({ show: true })
             this.setState({ currantStation: this.state.stationData[value] })
+        } else {
+            this.setState({ currantStation: {} })
         }
     }
 
     render() {
         return (
             <React.Fragment>
-                <div className='row'>
-                    <div className='internetRadio col-md-10 offset-md-2s' >
-                        <div className="box"><div className={this.state.start ? "diskStart" : 'diskStop'}></div></div>
-                        <div>
-                            {(this.state.currantStation.favicon) ? <img className='songImg' src={this.state.currantStation.favicon} /> : null}
+                <div className='radioMain'>
+                    <div className='row'>
+                        <div className='internetRadio col-md-10 offset-md-2s' >
+                            <div className="box"><div className={this.state.start ? "diskStart" : 'diskStop'}></div></div>
+                            <div>
+                                {(this.state.currantStation.favicon) ? <img className='songImgRadio' src={this.state.currantStation.favicon} /> : null}
+                            </div>
+
+
+                            {/* <Link to={"/AccountSetting"}>Account</Link> */}
                         </div>
                         <div className='radioBox'>
                             <Box sx={{ width: 600 }}>
@@ -134,8 +141,6 @@ class InternetRadio extends React.Component {
                                 </audio> : null}
                             </div>
                         </div>
-
-                        <Link to={"/AccountSetting"}>Account</Link>
                     </div>
                 </div>
             </React.Fragment >

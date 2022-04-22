@@ -1,6 +1,8 @@
-.songImg {
-    height: 300px;
-    width: 500px;
+.songImgRadio {
+    height: 250px;
+    width: 395px;
+    position: relative;
+    margin-left: 280px;
 }
 
 .row {
@@ -8,11 +10,27 @@
 }
 
 .audioDiv {
-    margin-top: 50px;
+    margin-top: 10px !important;
+    margin-left: 45px;
 }
 
 .audio {
     width: 500px;
+}
+
+.radioMain {
+    background-image: var(--bgImage);
+    margin-left: 16%;
+    padding: 1%;
+    /* display: flex; */
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 30vw;
+    border-radius: 20px;
+    box-shadow: 0 0 15px 5px black;
 }
 
 .internetRadio {
@@ -20,8 +38,9 @@
 }
 
 .radioBox {
-    margin-left: 120px;
-    margin-top: 100px;
+    margin-left: 122px;
+    position: fixed;
+    margin-top: 270px;
 }
 
 .MuiBox-root {
@@ -54,15 +73,14 @@
     position: absolute;
 }
 
-.box {
-    width: 250px;
-    height: 180px;
-    margin-left: -90px;
-    margin-top: -20px;
-    // margin:20px;
-    cursor: pointer;
-}
-
+// .box {
+//     width: 250px;
+//     height: 180px;
+//     margin-left: -90px;
+//     margin-top: -20px;
+//     // margin:20px;
+//     cursor: pointer;
+// }
 //   .diskStart {
 //         width:250px;
 //         height:250px;

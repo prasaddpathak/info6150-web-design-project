@@ -11,6 +11,7 @@ import CardContainer from '../../Components/MusicContainer/CardContainer/CardCon
 import InternetRadio from '../../Components/InternetRadio/InternetRadio';
 import MusicPlaying from '../../Components/MusicPlaying/MusicPlaying';
 import CreatePlaylist from '../../Components/CreatePlaylist/CreatePlaylist';
+import AccountSetting from '../../Components/AccountSetting/AccountSetting';
 import EventPage from '../EventsPage/EventsPage';
 
 class Home extends React.Component {
