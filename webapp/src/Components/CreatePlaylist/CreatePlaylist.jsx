@@ -15,7 +15,13 @@ class CreatePlaylist extends React.Component {
             selectedSongs :[]
         }
         this.onClick = this.onClick.bind(this);
+        this.addPlaylistToUser = this.addPlaylistToUser.bind(this);
     }
+
+    addPlaylistToUser(playlistName, selectedSongs) {
+        console.log(`Playlist Name : ${playlistName} \nSelected Songs: ${selectedSongs}`);
+    }
+
 
     onClick(e) {
         e.preventDefault()
@@ -24,9 +30,10 @@ class CreatePlaylist extends React.Component {
         for(let item of elements) {
             selectedSongsFromUI.push(item.name);
         }
-        console.log(selectedSongsFromUI);
+        // console.log(selectedSongsFromUI);
         const playlistNameTag = document.getElementsByClassName('PlaylistName');
-        console.log(playlistNameTag[0].value);
+        // console.log(playlistNameTag[0].value);
+        this.addPlaylistToUser(playlistNameTag[0].value, selectedSongsFromUI)
     }
 
     componentDidMount() {
