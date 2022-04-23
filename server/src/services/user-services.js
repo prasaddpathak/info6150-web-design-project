@@ -34,3 +34,37 @@ export const getPlaylistsForAUser = async (id) => {
     const playlists = extractPlaylistNameFromUser(user);
     return playlists;
 }
+
+export const appendPlaylistForAUser = async (id, playlist) => {
+    console.log(`Received a New Playlist for User: ${id}. Playlist Details ${playlist.playlist_name}`);
+    try {
+        const result =  await User.updateOne(
+            { _id : id},
+            {$push: {playlists : playlist}}
+        );
+        console.log(result);
+        return result
+    } catch(e)
+    {
+        console.log(e);
+    }    
+}
+
+export const deletePlaylistForAUser = async (id, playlistToDelete) => {
+    console.log(`Deleting Playlist for User: ${id}. Playlist Name ${playlistToDelete}`);
+    try {
+        const result =  await User.updateOne(
+            { _id : id},
+            {$pull: {
+                // playlists : [{playlist_name : playlistToDelete}]
+                playlists : {playlist_name : { $in : playlistToDelete}}
+                }
+            }
+        );
+        console.log(result);
+        return result
+    } catch(e)
+    {
+        console.log(e);
+    }    
+}

@@ -1,0 +1,11 @@
+.playlistItem { 
+    display: grid;
+    grid-template-columns: 75% 22%;
+    .playlist-delete-button {
+        width: auto;
+        margin: 10px;
+    }
+    .MuiIconButton-colorSecondary:hover{
+        background-color: rgba(162,213,242,0.8);
+    }
+}

@@ -18,6 +18,32 @@ class Home extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      Page : <CardContainer />
+    };
+    this.getCurrPage = this.getCurrPage.bind(this);
+  }
+
+  getCurrPage(pathName) {
+    switch (pathName) {
+        case "/home":
+          return <CardContainer/>
+        case "/home/radio":
+          return <InternetRadio/>
+        case "/home/events":
+          return <EventPage/>
+        case "/home/playlist":
+          return <CreatePlaylist/>
+    }
+}
+
+  componentDidMount() {
+    const path = window.location.pathname;
+    console.log(path);
+    const Component = this.getCurrPage(path); 
+    this.setState({
+      Page : Component
+    })
   }
 
   render() {
@@ -32,8 +58,9 @@ class Home extends React.Component {
               {/* <CardContainer /> */}
               {/* <InternetRadio /> */}
               {/* <MusicPlaying /> */}
-              <CreatePlaylist />
+              {/* <CreatePlaylist /> */}
               {/* <EventPage/> */}
+              {this.state.Page}
           </div>
         </section>
       </div>

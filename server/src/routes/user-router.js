@@ -23,6 +23,10 @@ router.route('/user/:id')
 
 router.route('/user/:id/playlist')
     .get(userController.getPlaylists)
+    .put(userController.updatePlaylists)
+
+router.route('/user/:id/playlist/:playlist')
+    .delete(userController.deletePlaylist)
 
 router.route('/music')
     .post(musicController.postallMusic)

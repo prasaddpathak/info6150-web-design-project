@@ -1,31 +1,30 @@
+@import '../../../Utils/scss/_variables.scss';
+
 .dropdown{
   position: absolute !important;
   z-index: 100000;
-  top: 75px;
+  top: 10vh;
   right:7px;
   width: 20vw;
   display: flex;
   flex-flow: column;
-  border: 1px solid #e0e0e0;
+  border: 1px solid $color-white;
   border-radius:0 0 10px 10px;
   user-select: none;
-  background-color: black;
-  // color: white;
+  background-color: $color-black;
   .dropdown-head{
     flex-flow: column;
     p{
-      color: gray;
+      color: $color-white;
     }
   }
   .lang-list {
-    // background-color: aqua;
     :hover {
-      background-color:antiquewhite;
+      background-color:$color-blue;
     }
   }
   .button-div{
     width: 100%;
-    // background-color: bisque;
     a{
       width: 100%;
     }
@@ -34,9 +33,6 @@
       width: 100%;
       padding: 7px;
       border: none;
-    }
-    :hover {
-      background-color:burlywood;
     }
   }
 }

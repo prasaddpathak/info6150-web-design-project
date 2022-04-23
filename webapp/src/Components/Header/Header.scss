@@ -1,3 +1,5 @@
+@import '../../Utils/scss/_variables.scss';
+
 @mixin flexBox() {
   display: flex;
   padding: 10px;
@@ -8,25 +10,20 @@
 nav {
   height: 10vh;
   display: flex;
-  background-color: black;
+  background-color: $color-black;
   user-select: none;
-  // border-bottom: 1px solid #e0e0e0;
-  // padding-right: 10px;
-
   div {
     @include flexBox;
   }
-
   .navigation {
     flex-flow: row wrap;
   }
-
   .Dropdown-btn {
     display: flex;
     .wrapper {
       padding: 0;
       flex-direction: column;
-      color: #EB5E28;
+      color: $color-orange;
     }
   }
 }
