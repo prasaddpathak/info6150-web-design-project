@@ -121,3 +121,17 @@ export const updatePlaylists = async (request,response) => {
         utils.setErrorResponse(error, response);
     }
 }
+
+export const deletePlaylist = async (request,response) => {
+    try {
+        const id = request.params.id;
+        const playlist_name = request.params.playlist;
+        // console.log(`Delete PLaylist: ${playlist_name} for User: ${id}`);
+
+        const result = await userService.deletePlaylistForAUser(id, playlist_name);
+        utils.setSuccessResponse(result, response);
+
+    } catch (error) {
+        utils.setErrorResponse(error, response);
+    }
+}
