@@ -4,6 +4,7 @@ import './NavBarOptions.scss'
 import {Link} from "react-router-dom";
 import {Button, IconButton} from '@material-ui/core';
 import {Delete} from "@material-ui/icons";
+import axios from "axios";
 
 
 
@@ -20,7 +21,12 @@ class SideBarOptions extends React.Component {
     }
 
     handleDelete() {
-        alert(this.state.title);
+        console.log(`Deleting Playlist : ${this.state.title}`);
+        axios.delete('http://127.0.0.1:9008/user/6260db9f897199ffa4f2135e/playlist/'+this.state.title)
+            .then((response) => {
+                response.modified_count ? console.log(`Playlist Deleted`) : console.log(`Playlist Not Deleted`)
+                window.location.reload();
+            });
     }
 
     render() {
