@@ -19,7 +19,7 @@ class SideBarOptions extends React.Component {
         // const sideBarRef = useRef();
         const href = this.props.href;
         return (
-            <Button onClick={()=>{this.myRef.current.click();}} className={className} startIcon={Icon && <Icon/>}>
+            <Button onClick={()=>{this.myRef.current.click();window.location.reload();}} className={className} startIcon={Icon && <Icon/>}>
                 <Link ref={this.myRef} to={href}/>
                 {title}
             </Button>

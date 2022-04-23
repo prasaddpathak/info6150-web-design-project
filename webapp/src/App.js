@@ -25,7 +25,7 @@ class App extends React.Component {
           <Route exact path="/"> <Homepage/></Route>
           <Route path="/login"> <Login/> </Route>
           <Route path="/signup"> <Signup/> </Route>
-          <Route exact path="/home"> <Home/></Route>
+          <Route path="/home"> <Home/></Route>
           <Route path="/event"> <Event/> </Route>
         </Switch>
       </Router>
