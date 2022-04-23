@@ -1,0 +1,9 @@
+.playlistItem {
+    // background-color: #a2d5f2;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    .playlist-delete-button {
+        width: auto;
+        margin: 10px;
+    }
+}

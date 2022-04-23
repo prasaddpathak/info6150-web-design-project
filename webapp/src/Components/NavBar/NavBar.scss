@@ -8,12 +8,15 @@
     border-right: 1px solid #e0e0e0;
     .p1 {
         border-bottom: 1px solid #e0e0e0;
+        color: #07689f;
         padding: 15px;
         font-weight: bolder;
         user-select: none;
     }
+    
     .lib-sub {
         padding: 10px;
+        width: 100%;
         margin: 5px;
         display: flex;
         justify-content: flex-start;
@@ -35,5 +38,6 @@
         .lib-sub:hover{
         background-color: #a2d5f2;
         }
+        
     }
 }
