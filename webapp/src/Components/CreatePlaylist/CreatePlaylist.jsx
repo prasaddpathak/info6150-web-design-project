@@ -1,5 +1,7 @@
+import axios from "axios";
 import React from "react";
 import './CreatePlaylist.scss';
+import ItemChecklist from  './ItemChecklist/ItemChecklist';
 
 class CreatePlaylist extends React.Component {
 
@@ -8,26 +10,38 @@ class CreatePlaylist extends React.Component {
         this.myRef = React.createRef();
         this.state = {
             checkedItems : new Map(),
-            songListTags :[]
+            songsList : [],
+            songListTags :[],
+            selectedSongs :[]
         }
         this.onClick = this.onClick.bind(this);
-        this.handleChange = this.handleChange.bind(this);
     }
 
-    
-    handleChange() {
-        console.log(`Clicked: ${this.myRef.current.name}`);
-        this.setState({
-            checkedItems : this.state.checkedItems.set(this.myRef.current.name, this.myRef.current.checked)
-        })
-        console.log(this.state.checkedItems);
-    }
-    onClick() {
-        alert(`Form Clicked`);
+    onClick(e) {
+        e.preventDefault()
+        const elements = document.getElementsByClassName('checked');
+        const selectedSongsFromUI = []
+        for(let item of elements) {
+            selectedSongsFromUI.push(item.name);
+        }
+        console.log(selectedSongsFromUI);
+        const playlistNameTag = document.getElementsByClassName('PlaylistName');
+        console.log(playlistNameTag[0].value);
     }
 
     componentDidMount() {
-        console.log('Loaded');
+        axios.get('http://127.0.0.1:9008/music')
+            .then((response) =>{
+                const songsFetched = []
+                response.data.map((item)=> songsFetched.push(item.name))
+                this.setState({
+                    songsList : [...songsFetched]
+                });
+                const tags = this.state.songsList.map((i,k) => <ItemChecklist title={i} id={k} key={k} />)                
+                this.setState({
+                    songListTags : [...tags]
+                })
+            });      
     }
 
     render() {
@@ -37,27 +51,9 @@ class CreatePlaylist extends React.Component {
                 <form onSubmit={this.onClick}>
                     <label>
                         Playlist Name:
-                        <input type="text" name="Playlist Name" id="playlistName" />
+                        <input type="text" className="PlaylistName" name="Playlist Name" id="playlistName" />
                     </label>
-                    <div>
-                        <label>
-                            <input type="checkbox" name="option1" id="option1" ref={this.myRef} onChange={this.handleChange}/>
-                            Song1
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox" name="option2" id="option2" ref={this.myRef} onChange={this.handleChange}/>
-                            Song2
-                        </label>
-                    </div>
-                    <div>
-                        <label>
-                            <input type="checkbox" name="option3" id="option3" onChange={this.handleChange}/>
-                            Song3
-                        </label>
-                    </div>
-
+                    {this.state.songListTags}
                     <br></br>
                     <input type="submit" value="Create" />
                 </form>
