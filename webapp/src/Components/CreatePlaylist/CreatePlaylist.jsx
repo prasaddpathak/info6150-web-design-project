@@ -20,11 +20,21 @@ class CreatePlaylist extends React.Component {
 
     addPlaylistToUser(playlistName, selectedSongs) {
         console.log(`Playlist Name : ${playlistName} \nSelected Songs: ${selectedSongs}`);
+        const playlist = {
+            "playlist_name" : playlistName,
+            "playlist_details" : selectedSongs
+        }
+        axios.put(
+            'http://127.0.0.1:9008/user/6260db9f897199ffa4f2135e/playlist',
+            playlist
+        ).then((response) =>{
+            console.log(response);
+        })
     }
 
 
     onClick(e) {
-        e.preventDefault()
+        // e.preventDefault()
         const elements = document.getElementsByClassName('checked');
         const selectedSongsFromUI = []
         for(let item of elements) {

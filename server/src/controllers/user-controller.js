@@ -98,3 +98,26 @@ export const getPlaylists = async (request,response) => {
         utils.setErrorResponse(error, response);
     }
 }
+
+export const updatePlaylists = async (request,response) => {
+    try {
+        const id = request.params.id;
+        const playlist_name = request.body.playlist_name;
+        const playlist_details = request.body.playlist_details.map((value) => {
+            return{
+                'song_name' : value  
+            }
+        });
+
+        const playlist = {
+            'playlist_name' : playlist_name,
+            'playlist_details' : playlist_details
+        }
+
+        // console.log(payload);
+        const result = await userService.appendPlaylistForAUser(id, playlist);
+        utils.setSuccessResponse(result, response);
+    } catch (error) {
+        utils.setErrorResponse(error, response);
+    }
+}

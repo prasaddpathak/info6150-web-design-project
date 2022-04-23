@@ -23,6 +23,7 @@ router.route('/user/:id')
 
 router.route('/user/:id/playlist')
     .get(userController.getPlaylists)
+    .put(userController.updatePlaylists)
 
 router.route('/music')
     .post(musicController.postallMusic)
