@@ -27,11 +27,6 @@ class SideBar extends React.Component {
         });
     }
 
-    ElementStyle = {
-        backgroundColor: "#f6f6f6",
-        color: "#2b2024"
-    }
-
     render() {
         return (
             <aside style={this.ElementStyle} className={"aside-bar"}>
