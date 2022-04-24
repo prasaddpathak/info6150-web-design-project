@@ -64,16 +64,18 @@ class CreatePlaylist extends React.Component {
     render() {
         return(
             <div className="create-playlist-container">
-                <h1>Create a New Playlist</h1>
-                <form onSubmit={this.onClick}>
-                    <label>
-                        Playlist Name:
-                        <input type="text" className="PlaylistName" name="Playlist Name" id="playlistName" />
-                    </label>
-                    {this.state.songListTags}
-                    <br></br>
-                    <input type="submit" value="Create" />
-                </form>
+                <div className="create-playlist-box">
+                    <h1>Create a New Playlist</h1>
+                    <form onSubmit={this.onClick}>
+                        <label>
+                            Playlist Name:
+                            <input type="text" className="PlaylistName" name="Playlist Name" id="playlistName" />
+                        </label>
+                        {this.state.songListTags}
+                        <br></br>
+                        <input type="submit" value="Create" />
+                    </form>
+                </div>    
             </div>
         );
     }

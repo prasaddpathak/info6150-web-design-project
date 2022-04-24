@@ -1,6 +1,7 @@
 import React from "react";
+import './ItemChecklist.scss'
 
-class SideBarOptions extends React.Component {
+class ItemChecklist extends React.Component {
     
     constructor(props) {
         super(props);
@@ -17,7 +18,7 @@ class SideBarOptions extends React.Component {
         const title = this.props.title;
         const href = this.props.href;
         return (
-            <div>
+            <div className="checkbox-item">
                 <label>
                     <input type="checkbox" className='SongCheckbox' name={title} id={id} ref={this.myRef} onClick={this.handleSelected}/>
                     {title}
@@ -27,4 +28,4 @@ class SideBarOptions extends React.Component {
     }
 }
 
-export default SideBarOptions;
+export default ItemChecklist;
