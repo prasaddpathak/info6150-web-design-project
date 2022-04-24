@@ -1,0 +1,41 @@
+@import '../../Utils/scss/variables';
+
+.create-playlist-container{
+    height: 90vh;
+    overflow-y: auto;
+    background: radial-gradient(circle, rgba($color-orange,0.7) 0%, rgba(148,187,233,1) 100%);
+    // background-image: url('./../../Assets/Img/pexels-felipe-ribeiro-2271683.jpg');
+    // background-size: cover;
+    // background-color: rgba($color-blue,0.5);
+    color: aliceblue;
+
+    .create-playlist-box{
+
+        background: rgba(0, 0, 0, 0.45);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(13.8px);
+        -webkit-backdrop-filter: blur(13.8px);
+        height: fit-content;
+        width: fit-content;
+        margin: 75px auto;
+    }
+    h1 {
+        padding: 30px 50px;
+        font-weight: bolder;
+        text-align: center;
+    }
+    form {
+        padding: 30px;
+        text-align: center;
+        left: 50%;
+        margin: auto;
+        width:fit-content;
+        input {
+            margin-left: 20px;
+        }
+    }
+    label {
+        font-size: 20px;
+    }
+}

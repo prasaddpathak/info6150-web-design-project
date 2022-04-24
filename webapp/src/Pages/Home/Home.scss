@@ -1,0 +1,12 @@
+.home-music-container{
+    display: flex;
+    .sidebar-home{
+      flex: 0.15;
+      // position: fixed;
+    }
+    .main-home{
+      flex: 0.85;
+      height: 90vh;
+      overflow-y: auto ;
+    }
+  }
