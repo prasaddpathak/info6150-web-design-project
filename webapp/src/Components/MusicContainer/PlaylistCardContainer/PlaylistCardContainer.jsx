@@ -1,7 +1,7 @@
 /*
     Author:     Web of lies
     Subject:    INFO6150 - Web Design and UX
-    Purpose:    Javascript file to display all music components in Grid format WRT URL
+    Purpose:    Javascript file to display music from selected playlist in Grid format WRT URL
 */
 
 import React, {useState} from "react"
