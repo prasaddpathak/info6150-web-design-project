@@ -57,7 +57,7 @@ class Home extends React.Component {
           <div className="main-home">
               {/* <CardContainer /> */}
               {/* <InternetRadio /> */}
-              {/* <MusicPlaying /> */}
+              {/* <MusicPlaying />  */}
               {/* <CreatePlaylist /> */}
               {/* <EventPage/> */}
               {this.state.Page}

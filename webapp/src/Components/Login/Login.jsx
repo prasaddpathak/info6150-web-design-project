@@ -7,9 +7,11 @@ import axios from "axios";
 
 const Login =({setLoginUser}) => {
         //declaring user state woth name,email addresses etc
+      
         const [user, setUser]=useState({
             email:"",
             password:"",
+           
            
         })
 
@@ -23,12 +25,13 @@ const Login =({setLoginUser}) => {
             // till here we got the name and the value of each state and now we are going to use setUser to set the state
             setUser({
                 ...user,
-                [name]:value  // when a user enter his name then this will keep his name in name, and will put the rest of things in ...user 
+                [name]:value
+                  // when a user enter his name then this will keep his name in name, and will put the rest of things in ...user 
             })
         }
 
         const login=()=>{
-            axios.post("http://localhost:9002/login/",user)
+            axios.post("http://localhost:9008/login",user)
             .then(res=>{
                 alert(res.data.message)
                 setLoginUser(res.data.user)
