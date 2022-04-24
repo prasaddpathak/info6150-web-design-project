@@ -1,5 +1,7 @@
 import React from "react";
 
+
+// Toggle the color theme for light version
 export const themes = {
     light: {
         theme: "#07689f",
@@ -27,6 +29,7 @@ export const themes = {
             color: "#07689f"
         }
     },
+    // Toggle the color theme for dark version    
     dark: {
         theme: "#4ecca3",
         subTheme: "#a2d5f2",

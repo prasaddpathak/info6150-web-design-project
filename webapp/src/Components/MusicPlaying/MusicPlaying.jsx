@@ -6,7 +6,7 @@ import './MusicPlaying.scss'
 import song from '../../Assets/Audio/song.mp3'
 import disc from '../../Assets/Img/songDisk.png'
 
-
+//class musicplaying component defined
 
 class MusicPlaying extends React.Component {
     constructor(props) {
