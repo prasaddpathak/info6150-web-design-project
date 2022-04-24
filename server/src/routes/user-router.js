@@ -30,6 +30,8 @@ router.route('/user/:id/playlist/:playlist')
 
 router.route('/music')
     .post(musicController.postallMusic)
-    .get(musicController.allMusic);    
+    .get(musicController.allMusic);  
+    
+
 
 export default router;

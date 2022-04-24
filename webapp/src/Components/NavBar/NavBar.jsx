@@ -19,7 +19,8 @@ class SideBar extends React.Component {
             console.log(`Returned Playlists:  ${response.data}`);
             const playlistsFetched = response.data.map((i,k) => 
                 
-                    <NavBarOptions className={"lib-sub"} Icon={PlaylistPlay} href={"/home/playlist/"+i}  title={i} key={k} isPlaylistItem = {true} />)
+                     <NavBarOptions className={"lib-sub"} Icon={PlaylistPlay} href={"/home/playlist/"+i}  title={i} key={k} isPlaylistItem = {true} />)
+                    // <NavBarOptions className={"lib-sub"} Icon={PlaylistPlay} href={"/home/PlaylistCardContainer/"+i}  title={i} key={k} isPlaylistItem = {true} />)
 
             this.setState({
                 playlistTags : [...playlistsFetched]
