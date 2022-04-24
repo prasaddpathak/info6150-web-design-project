@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import routes from "./routes/index.js";
 
+
 mongoose.connect('mongodb+srv://admin:admin@cluster0.tybff.mongodb.net/on-the-aux', {
     autoIndex: true,
 }).then(() => {
@@ -11,7 +12,7 @@ mongoose.connect('mongodb+srv://admin:admin@cluster0.tybff.mongodb.net/on-the-au
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended:true}));
 app.use(cors());
 
 routes(app);

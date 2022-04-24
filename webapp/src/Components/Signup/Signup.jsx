@@ -34,10 +34,8 @@ const Signup = () => {
             if(!(validator.isEmail(email))){
                 return alert("Please enter valid email!");
             }
-            // if(typeof name===Number){
-            //     return alert("Please enter valid name!");
-            // } //yet to apply the input validation
-            axios.post("http://localhost:9002/user", user) 
+        
+            axios.post("http://localhost:9008/user", user) 
             .then( res => {
                 alert(res.data.message)
                 history.push("/login")
