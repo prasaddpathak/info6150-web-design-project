@@ -29,6 +29,7 @@ export const checkPassword = (email) => {
     return User.findOne({email : email}).exec();
 }
 
+//Return only names of playlist
 export const getPlaylistsForAUser = async (id) => {
     const user = await User.findById(id).exec();
     const playlists = extractPlaylistNameFromUser(user);
