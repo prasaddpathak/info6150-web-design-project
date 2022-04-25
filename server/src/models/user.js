@@ -1,5 +1,9 @@
-import { hashSync, compareSync } from "bcrypt";
+
+import { hashSync,compareSync } from "bcrypt";
+import jwt from "jsonwebtoken";
+
 import mongoose from "mongoose";
+import  {SESS_LIFETIME, SESS_SECRET} from '..//config/config.js';
 
 //Defined users schema
 const Schema = new mongoose.Schema({
@@ -34,8 +38,12 @@ const Schema = new mongoose.Schema({
     modifiedDate: {
         type: Date,
         default: Date.now
-    }
-}, { skipVersioning: true });
+
+    },
+    resetPassowordToken: String,
+    resetPasswordExpired:Date
+}, {skipVersioning: true});
+
 
 //hashing the password before sending to the database, this 'pre' is middleware and will run right 
 //before the User instance save
@@ -51,6 +59,15 @@ Schema.methods.comparePasswords = function(password) {
     return compareSync(password, this.password);
 }
 
+ Schema.methods.getSignedToken=function() {
+     return jwt.sign({
+        userId: userN._id,
+        email:userN.email},
+        SESS_SECRET,{
+            expiresIn:SESS_LIFETIME
+        }
+        )
+ }
 const model = mongoose.model('user', Schema);
 
 export default model;

@@ -13,6 +13,7 @@ import MusicPlaying from '../../Components/MusicPlaying/MusicPlaying';
 import CreatePlaylist from '../../Components/CreatePlaylist/CreatePlaylist';
 import AccountSetting from '../../Components/AccountSetting/AccountSetting';
 import EventPage from '../EventsPage/EventsPage';
+import PlaylistCardContainer from '../../Components/MusicContainer/PlaylistCardContainer/PlaylistCardContainer';
 
 class Home extends React.Component {
 

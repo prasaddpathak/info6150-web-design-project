@@ -2,6 +2,7 @@ import { json } from "express";
 
 export const setErrorResponse = (error, response) => {
     response.status(500);
+    response.status(409);
     response.json(error);
 }
 
@@ -18,4 +19,9 @@ export const extractPlaylistNameFromUser = (obj) => {
     });
     console.log(`Returning : ${playlistNames}`);
     return playlistNames;
+}
+
+export const sessionizeUser=user =>{
+    return {userId:user._id, username:user.name};
+
 }

@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {Button, IconButton} from '@material-ui/core';
 import {Delete} from "@material-ui/icons";
 import axios from "axios";
+import CardContainer from '../../MusicContainer/CardContainer/CardContainer';
 
 
 
@@ -29,6 +30,10 @@ class SideBarOptions extends React.Component {
             });
     }
 
+    navigateToPlaylist() {
+        return <CardContainer/>
+    }
+
     render() {
         const Icon = this.props.Icon;
         const title = this.props.title;
@@ -43,6 +48,22 @@ class SideBarOptions extends React.Component {
                     <Link ref={this.myRef} to={href}/>
                     {title}
                 </Button>
+                {/* <Button onClick={this.navigateToPlaylist} className={className} startIcon={Icon && <Icon/>}>
+                    <Link ref={this.myRef} to={href}/>
+                    {title}
+                </Button> */}
+                {/* {
+                    !isPlaylistItem ? 
+                    <Button onClick={()=>{this.myRef.current.click();window.location.reload();}} className={className} startIcon={Icon && <Icon/>}>
+                    <Link ref={this.myRef} to={href}/>
+                    {title}
+                    </Button>
+                :
+                <Button onClick={this.navigateToPlaylist} className={className} startIcon={Icon && <Icon/>}>
+                <Link ref={this.myRef} to={href}/>
+                {title}
+                </Button>
+                } */}
                 {
                     isPlaylistItem ? 
                         <IconButton color="secondary" onClick={this.handleDelete}>
