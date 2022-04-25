@@ -13,6 +13,7 @@ import SongName from "../SongNames/SongName";
 import { Skeleton } from "@material-ui/lab";
 import Box from "@material-ui/core/Box";
 import first from '../../MusicImg/musicpicture.jpg';
+import { Link } from 'react-router-dom';
 
 function MusicCard(props) {
     const { name, img, author_name } = props.music;
@@ -53,8 +54,8 @@ function MusicCard(props) {
                     <>
                         <div onClick={handlePlay} className={"music-card-cover"} onMouseOver={handleResponse}>
                             <img src={first} alt={name} />
-                            <div className="play-circle">
-                                <PlayCircleFilledWhiteIcon />
+                            <div hr className="play-circle">
+                                <a href="/home/playMusic"> <PlayCircleFilledWhiteIcon /></a>
                             </div>
                         </div>
                         <React.Fragment>
@@ -65,7 +66,7 @@ function MusicCard(props) {
             }
 
 
-        </div>
+        </div >
     );
 }
 

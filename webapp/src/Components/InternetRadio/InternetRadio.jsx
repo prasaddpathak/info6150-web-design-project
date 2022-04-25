@@ -4,6 +4,8 @@ import { Slider } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import './InternetRadio.scss'
 import { RadioBrowserApi } from "radio-browser-api"
+import Toggle from '../../Utils/js/toggle';
+import { lightTheme, darkTheme } from "../../Utils/js/theme";
 class InternetRadio extends React.Component {
     constructor(props) {
         super(props);
@@ -14,7 +16,7 @@ class InternetRadio extends React.Component {
             currantStation: {},
             stationData: {},
             frequencys: [
-
+                //Set the freqeuncy value of radio
                 {
                     value: 70.0,
                     label: "70.0hz"
@@ -42,8 +44,15 @@ class InternetRadio extends React.Component {
     }
     // Radio Api called for setting up the country   
     componentDidMount() {
-
         this.setupApi("country")
+        let currentTheme = sessionStorage.getItem('theme')
+        const theme = currentTheme === "light" ? lightTheme : darkTheme;
+        console.log("main", theme)
+        // sessionStorage.setItem('theme', currentTheme)
+        Object.keys(theme).forEach((key) => {
+            const value = theme[key];
+            document.documentElement.style.setProperty(key, value);
+        });
 
 
         // return stations
@@ -110,9 +119,6 @@ class InternetRadio extends React.Component {
                             <div>
                                 {(this.state.currantStation.favicon) ? <img className='songImgRadio' src={this.state.currantStation.favicon} /> : null}
                             </div>
-
-
-                            {/* <Link to={"/AccountSetting"}>Account</Link> */}
                         </div>
                         <div className='radioBox'>
                             <Box sx={{ width: 600 }}>

@@ -5,17 +5,18 @@
 */
 import mongoose from "mongoose";
 
+//Defined Music Schema
 const Schema = new mongoose.Schema({
-    name : {
+    name: {
         type: String,
         required: 'Music short name is required.',
         unique: true
     },
-    author_name:{ 
+    author_name: {
         type: String,
         required: 'author_name is required'
     },
-    img : {
+    img: {
         type: String,
         required: 'Music image is requried.'
     },
@@ -34,23 +35,23 @@ const Schema = new mongoose.Schema({
         required: 'Music detail name number is requried.',
         unique: true
     }
-}, {skipVersioning: true});
+}, { skipVersioning: true });
 
 /**
  * Validates unique name
  */
- Schema.path('name').validate(async (name) => {
+Schema.path('name').validate(async(name) => {
     const nameCount = await mongoose.models.music.countDocuments({ name })
     return !nameCount
-  }, 'Name already exists')
+}, 'Name already exists')
 
-  /**
+/**
  * Validates unique musicName
  */
- Schema.path('musicName').validate(async (musicName) => {
+Schema.path('musicName').validate(async(musicName) => {
     const musicNameCount = await mongoose.models.music.countDocuments({ musicName })
     return !musicNameCount
-  }, 'Music Name already exists')
+}, 'Music Name already exists')
 
 
 const model = mongoose.model('music', Schema);

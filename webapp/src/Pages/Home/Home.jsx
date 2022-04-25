@@ -7,7 +7,7 @@ import React from 'react';
 import './Home.scss';
 import Header from '../../Components/Header/Header';
 import NavBar from '../../Components/NavBar/NavBar';
-import CardContainer from '../../Components/MusicContainer/CardContainer/CardContainer'; 
+import CardContainer from '../../Components/MusicContainer/CardContainer/CardContainer';
 import InternetRadio from '../../Components/InternetRadio/InternetRadio';
 import MusicPlaying from '../../Components/MusicPlaying/MusicPlaying';
 import CreatePlaylist from '../../Components/CreatePlaylist/CreatePlaylist';
@@ -20,50 +20,52 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Page : <CardContainer />
+      Page: <CardContainer />
     };
     this.getCurrPage = this.getCurrPage.bind(this);
   }
 
   getCurrPage(pathName) {
     switch (pathName) {
-        case "/home":
-          return <CardContainer/>
-        case "/home/radio":
-          return <InternetRadio/>
-        case "/home/events":
-          return <EventPage/>
-        case "/home/playlist":
-          return <CreatePlaylist/>
-        default :
-          return <PlaylistCardContainer/>
+      case "/home":
+        return <CardContainer />
+      case "/home/radio":
+        return <InternetRadio />
+      case "/home/events":
+        return <EventPage />
+      case "/home/playlist":
+        return <CreatePlaylist />
+      case "/home/playMusic":
+        return <MusicPlaying />
+      case "/home/accountSetting":
+        return <AccountSetting />
     }
-}
+  }
 
   componentDidMount() {
     const path = window.location.pathname;
     console.log(path);
-    const Component = this.getCurrPage(path); 
+    const Component = this.getCurrPage(path);
     this.setState({
-      Page : Component
+      Page: Component
     })
   }
 
   render() {
     return (
-      <div className={"home-container"}> 
+      <div className={"home-container"}>
         <Header></Header>
         <section className={"home-music-container"}>
           <div className="sidebar-home">
-              <NavBar/>
+            <NavBar />
           </div>
           <div className="main-home">
-              {/* <CardContainer /> */}
-              {/* <InternetRadio /> */}
-              {/* <MusicPlaying />  */}
-              {/* <CreatePlaylist /> */}
-              {/* <EventPage/> */}
-              {this.state.Page}
+            {/* <CardContainer /> */}
+            {/* <InternetRadio /> */}
+            {/* <MusicPlaying />  */}
+            {/* <CreatePlaylist /> */}
+            {/* <EventPage/> */}
+            {this.state.Page}
           </div>
         </section>
       </div>

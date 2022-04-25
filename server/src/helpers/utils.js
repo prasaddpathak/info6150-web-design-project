@@ -7,12 +7,12 @@ export const setErrorResponse = (error, response) => {
 }
 
 export const setSuccessResponse = (obj, response) => {
-    response.status(200);
-    response.json(obj);
-}
-
+        response.status(200);
+        response.json(obj);
+    }
+    //Fetching playlist name given by use
 export const extractPlaylistNameFromUser = (obj) => {
-    const userPlaylists =  obj.playlists; 
+    const userPlaylists = obj.playlists;
     const playlistNames = []
     userPlaylists.forEach(item => {
         playlistNames.push(item.playlist_name);
