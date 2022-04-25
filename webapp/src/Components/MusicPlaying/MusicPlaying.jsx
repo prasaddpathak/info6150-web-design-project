@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './MusicPlaying.scss'
 import song from '../../Assets/Audio/song.mp3'
 import disc from '../../Assets/Img/songDisk.png'
-
+import { lightTheme, darkTheme } from "../../Utils/js/theme";
 //class musicplaying component defined
 
 class MusicPlaying extends React.Component {
@@ -14,6 +14,16 @@ class MusicPlaying extends React.Component {
         this.state = {
             start: false
         }
+    }
+    componentDidMount() {
+        let currentTheme = sessionStorage.getItem('theme')
+        const theme = currentTheme === "light" ? lightTheme : darkTheme;
+        console.log("main", theme)
+        // sessionStorage.setItem('theme', currentTheme)
+        Object.keys(theme).forEach((key) => {
+            const value = theme[key];
+            document.documentElement.style.setProperty(key, value);
+        });
     }
 
     startSong = () => {

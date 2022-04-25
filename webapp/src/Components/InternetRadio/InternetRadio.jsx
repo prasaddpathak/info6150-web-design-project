@@ -4,8 +4,8 @@ import { Slider } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import './InternetRadio.scss'
 import { RadioBrowserApi } from "radio-browser-api"
-
-
+import Toggle from '../../Utils/js/toggle';
+import { lightTheme, darkTheme } from "../../Utils/js/theme";
 class InternetRadio extends React.Component {
     constructor(props) {
         super(props);
@@ -44,8 +44,15 @@ class InternetRadio extends React.Component {
     }
     // Radio Api called for setting up the country   
     componentDidMount() {
-
         this.setupApi("country")
+        let currentTheme = sessionStorage.getItem('theme')
+        const theme = currentTheme === "light" ? lightTheme : darkTheme;
+        console.log("main", theme)
+        // sessionStorage.setItem('theme', currentTheme)
+        Object.keys(theme).forEach((key) => {
+            const value = theme[key];
+            document.documentElement.style.setProperty(key, value);
+        });
 
 
         // return stations
