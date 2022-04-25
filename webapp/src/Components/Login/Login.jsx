@@ -6,19 +6,17 @@ import axios from "axios";
 
 
 const Login =({setLoginUser}) => {
-        //declaring user state woth name,email addresses etc
-      
+
+        //declaring user state with name and email addresses for login purpose
         const [user, setUser]=useState({
             email:"",
-            password:"",
-           
-           
+            password:"",         
         })
 
-        //using the history of singups
-        const historydet = useHistory()
+        //using the history of singups with useHistory method
+        const historySignups = useHistory()
     
-        const handleChange= e =>{
+        const handle= e =>{
             
             const{name,value} =e.target;
             // console.log({name,value}); 
@@ -35,7 +33,7 @@ const Login =({setLoginUser}) => {
             .then(res=>{
                 alert(res.data.message)
                 setLoginUser(res.data.user)
-                historydet.get("/")
+                historySignups.get("/")
             })
 
         }
@@ -47,13 +45,13 @@ const Login =({setLoginUser}) => {
             <img height="35%" className="image animate__animated animate__heartBeat animate__repeat-3" src={logo} alt="app icon"/>
             <h1>On the aux</h1>
             {console.log("user",user)}
-            <input type="text" name="email" value={user.email} placeholder="Enter your email" onChange={handleChange}></input>
+            <input type="text" name="email" value={user.email} placeholder="Please enter your email" onChange={handle}></input>
             <br/>
-            <input type="text" name="password" value={user.password} placeholder="Enter your password" onChange={handleChange}></input>
+            <input type="password" name="password" value={user.password} placeholder="Please enter your password" onChange={handle}></input>
             <br/>
-            <div className="button" onClick={login}>Login</div>
+            <div className="buttonlogin" onClick={login}>Login</div>
             <div>or</div>
-            <div className="button" onClick={()=>historydet.push("/signup")}>Signup</div>
+            <div className="buttonsignup" onClick={()=>historySignups.push("/signup")}>Signup</div>
 
         </div>
     )
