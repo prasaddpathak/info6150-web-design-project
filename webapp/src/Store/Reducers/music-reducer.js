@@ -16,7 +16,8 @@ export const initialState = {
     playing:null,
     bannerOpen: false,
     search:null,
-    language: null
+    language: null,
+    userid : ""
 };
 const musicReducer = (state=initialState,action) => {
     switch (action.type){
@@ -47,6 +48,11 @@ const musicReducer = (state=initialState,action) => {
             return {
                 ...state,
                 language: action.payload
+            };
+        case "SET_USERID":
+            return {
+                ...state,
+                userid: action.payload
             };
         default:
             return state;

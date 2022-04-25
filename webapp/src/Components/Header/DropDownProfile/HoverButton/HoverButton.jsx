@@ -36,7 +36,8 @@ class HoverButton extends React.Component {
                 <Button style={this.currStyle}
                         startIcon={this.props.Icon?<this.props.Icon/>:null}
                         variant={this.props.variant}   
-                        onMouseOver={this.handleOver} onMouseOut={this.handleOut}>
+                        onMouseOver={this.handleOver} onMouseOut={this.handleOut}
+                        onClick = {this.props.onClickFunc}>
                     {this.props.text}
                 </Button>
             // </Link>
