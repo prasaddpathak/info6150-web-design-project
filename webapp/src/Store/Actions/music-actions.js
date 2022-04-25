@@ -37,3 +37,10 @@ export const setMusicLang = (langList) => {
         payload: langList
     };
 };
+
+export const setUserid = (userid) => {
+    return {
+        type:"SET_USERID",
+        payload: userid
+    };
+};

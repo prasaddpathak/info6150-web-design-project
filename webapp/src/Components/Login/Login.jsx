@@ -4,8 +4,7 @@ import { useHistory } from "react-router-dom";
 import logo from './../../Assets/Img/logo.png';
 import axios from "axios";
 
-
-const Login =({setLoginUser}) => {
+const Login = (props) => {
 
         //declaring user state with name and email addresses for login purpose
         const [user, setUser]=useState({
@@ -28,13 +27,15 @@ const Login =({setLoginUser}) => {
             })
         }
 
-        const login=()=>{
+        function login(setLoginUser) {
             axios.post("http://localhost:9008/login",user)
             .then(res=>{
-                alert(res.data.message)
-                setLoginUser(res.data.user)
-                historySignups.get("/")
-            })
+
+                setLoginUser(res.data.token)
+                // console.log(res.data.token)
+                historySignups.push("/home");
+            });
+            
 
         }
     return (
@@ -49,7 +50,7 @@ const Login =({setLoginUser}) => {
             <br/>
             <input type="password" name="password" value={user.password} placeholder="Please enter your password" onChange={handle}></input>
             <br/>
-            <div className="buttonlogin" onClick={login}>Login</div>
+            <div className="buttonlogin" onClick={() => login(props.setLoginUser)}>Login</div>
             <div>or</div>
             <div className="buttonsignup" onClick={()=>historySignups.push("/signup")}>Signup</div>
 

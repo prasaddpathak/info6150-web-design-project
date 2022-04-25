@@ -34,7 +34,7 @@ class Home extends React.Component {
       case "/home/events":
         return <EventPage />
       case "/home/playlist":
-        return <CreatePlaylist />
+        return <CreatePlaylist/>
       case "/home/playMusic":
         return <MusicPlaying />
       case "/home/accountSetting":
@@ -57,7 +57,7 @@ class Home extends React.Component {
         <Header></Header>
         <section className={"home-music-container"}>
           <div className="sidebar-home">
-            <NavBar />
+            <NavBar/>
           </div>
           <div className="main-home">
             {/* <CardContainer /> */}
