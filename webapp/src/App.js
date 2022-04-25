@@ -18,6 +18,12 @@ class App extends React.Component {
     constructor(props) {
         super(props);
     }
+    componentDidMount() {
+        let currentTheme = sessionStorage.getItem('theme')
+        if (!currentTheme) {
+            sessionStorage.setItem('theme', 'light')
+        }
+    }
     render() {
         return ( <
             ThemeContext.Provider value = { themes.light } >
