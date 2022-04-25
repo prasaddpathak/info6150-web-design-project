@@ -40,9 +40,8 @@ class AccountSetting extends React.Component {
         } else {
             this.setState({ passwordMsg: "Password Miss Match!" })
         }
-
-
     }
+    //Submit function for personal details updation form
     submitPDetailsUpdate = (e) => {
         e.preventDefault()
         if (this.state.pDetailsMsg == "") {
@@ -58,13 +57,14 @@ class AccountSetting extends React.Component {
             })
         }
     }
-
+    //fucntion defined for change password
     handleChangePassword = (event) => {
         let newState = { ...this.state.passwordUpdate }
         newState[event.target.name] = event.target.value
         this.setState({ passwordUpdate: newState });
         console.log(this.state.passwordUpdate)
     };
+    //fucntion defined for change personal details  
     handleChangePDetails = (event) => {
         let newState = { ...this.state.pDetails }
         if (event.target.name === 'contactNo') {

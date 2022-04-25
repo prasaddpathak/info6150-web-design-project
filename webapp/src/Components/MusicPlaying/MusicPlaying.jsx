@@ -1,12 +1,12 @@
 import React from 'react'
 import Song from '../../Assets/Audio/song.mp3';
-import songImg from '../../Assets/Img/songImage.jpg';
+import songImg from '../MusicImg/musicpicture.jpg';
 import { Link } from 'react-router-dom';
 import './MusicPlaying.scss'
 import song from '../../Assets/Audio/song.mp3'
 import disc from '../../Assets/Img/songDisk.png'
-
-
+import { lightTheme, darkTheme } from "../../Utils/js/theme";
+//class musicplaying component defined
 
 class MusicPlaying extends React.Component {
     constructor(props) {
@@ -14,6 +14,16 @@ class MusicPlaying extends React.Component {
         this.state = {
             start: false
         }
+    }
+    componentDidMount() {
+        let currentTheme = sessionStorage.getItem('theme')
+        const theme = currentTheme === "light" ? lightTheme : darkTheme;
+        console.log("main", theme)
+        // sessionStorage.setItem('theme', currentTheme)
+        Object.keys(theme).forEach((key) => {
+            const value = theme[key];
+            document.documentElement.style.setProperty(key, value);
+        });
     }
 
     startSong = () => {
@@ -39,8 +49,9 @@ class MusicPlaying extends React.Component {
                                     controls
                                     onPlay={this.startSong}
                                     onPause={this.pauseSong}
-                                    // src='http://youtu.be/qJT0mc3q6Lg'>
-                                    src={song}>
+                                    src='http://ncs.io/Shakedown'>
+                                    // src={song}
+                                    {/* > */}
                                     <code>audio</code> element.
                                 </audio>
                             </div>

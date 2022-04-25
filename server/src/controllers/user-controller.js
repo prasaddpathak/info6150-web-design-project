@@ -1,12 +1,22 @@
 import * as userService from './../services/user-services.js';
 import * as utils from './../helpers/utils.js';
-import bcrypt from 'bcrypt';
+import bcrypt, {hash, hashSync } from 'bcrypt';
+import Model from '..//models/user.js'
+import express from 'express';
+import {SESS_LIFETIME, SESS_SECRET} from '..//config/config.js';
+import jwt from 'jsonwebtoken';
+
 
 export const post = async(request, response) => {
     try {
+        //put await for the variable since its a async function
+        // const userNew=await Model.findOne({email:request.body.email})
+        // if(userNew){
+        //     return response.status(409).send({message:"User already present"});
+        // }
         const payload = request.body;
-        const user = await userService.save(payload);
-        utils.setSuccessResponse(user, response);
+        const user = await userService.save(payload); 
+        utils.setSuccessResponse({ message: `User successfully added` }, response);
     } catch (error) {
         utils.setErrorResponse(error, response);
     }
@@ -68,15 +78,27 @@ export const remove = async(request, response) => {
 
 export const login = async(request, response) => {
     try {
-        const { email, password } = request.body
+
+        const { email, password } = request.body;
         const user = await userService.checkPassword(email);
-        console.log(user);
+        const userN=await Model.findOne({email});
         if (user) // if the user is already present
         {
-            if (password === user.password) {
-                utils.setSuccessResponse({ message: `Successfully Logged In`, userID: user._id }, response);
+        //here the user-password is being compared to the hashed password in the database
+            if (userN && userN.comparePasswords(password))
+             {
+
+                const token=jwt.sign({
+                    email:userN.email,
+                    userId: userN._id
+                },SESS_SECRET,{
+                    expiresIn:SESS_LIFETIME
+                });
+               
+
+                utils.setSuccessResponse({ message: `Successfully Logged In`, token:token }, response);
             } else {
-                utils.setSuccessResponse({ message: `Password Did not match` }, response);
+                utils.setSuccessResponse({ message: `Oops!! Password Did not match,Invalid credentials` }, response);
             }
         } else //if user does not exist
         {

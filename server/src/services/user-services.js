@@ -1,6 +1,7 @@
 import User from './../models/user.js';
 import {extractPlaylistNameFromUser} from '../helpers/utils.js'
 
+
 export const save = (newContact) => {
     const user = new User(newContact);
     return user.save();
@@ -26,7 +27,7 @@ export const remove = (id) => {
 }
 
 export const checkPassword = (email) => {
-    return User.findOne({email : email}).exec();
+    return User.findOne({email : email}).exec();    
 }
 
 //Return only names of playlist
@@ -69,3 +70,4 @@ export const deletePlaylistForAUser = async (id, playlistToDelete) => {
         console.log(e);
     }    
 }
+

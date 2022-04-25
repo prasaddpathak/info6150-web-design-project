@@ -14,6 +14,7 @@ import { Skeleton } from "@material-ui/lab";
 import Box from "@material-ui/core/Box";
 import first from '../../../Assets/Img/Beach.jpg';
 
+
 function MusicCard(props) {
     const { name, img, author_name } = props.music;
 
@@ -50,6 +51,7 @@ function MusicCard(props) {
                     :
                     <>
                         <div onClick={handlePlay} className={"music-card-cover"} onMouseOver={handleResponse}>
+
                             {/* {console.log("img:"+img)}
                             {console.log("name:"+name)} */}
 
@@ -69,6 +71,7 @@ function MusicCard(props) {
                             } 
                             <div className="play-circle">
                                 <PlayCircleFilledWhiteIcon />
+
                             </div>
                         </div>
                         <React.Fragment>
@@ -79,7 +82,7 @@ function MusicCard(props) {
             }
 
 
-        </div>
+        </div >
     );
 }
 

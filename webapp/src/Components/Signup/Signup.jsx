@@ -2,13 +2,12 @@ import React, { useState } from "react"
 import "./Signup.scss"
 import axios from "axios";
 import validator from 'validator';
-
 import { useHistory } from "react-router-dom"
 
 const Signup = () => {
 
     const history = useHistory()
-
+    //assign the state to the user
     const [ user, setUser] = useState({
         name: "",
         email:"",
@@ -17,8 +16,8 @@ const Signup = () => {
         contactNo:""
 
     })
-
-    const handleChange = e => {
+    //getting the inputs as user enters the value
+    const handle = e => {
         const { name, value } = e.target
         setUser({
             ...user,
@@ -26,7 +25,7 @@ const Signup = () => {
         })
     }
 // sign up a new user with input validations
-    const signin = () => {
+    const signUp = () => {
         console.log(user);
         const { name, email, password, reEnterPassword ,contactNo} = user
         if( name && email && password &&contactNo &&(password === reEnterPassword))
@@ -34,10 +33,8 @@ const Signup = () => {
             if(!(validator.isEmail(email))){
                 return alert("Please enter valid email!");
             }
-            // if(typeof name===Number){
-            //     return alert("Please enter valid name!");
-            // } //yet to apply the input validation
-            axios.post("http://localhost:9002/user", user) 
+        
+            axios.post("http://localhost:9008/user", user) 
             .then( res => {
                 alert(res.data.message)
                 history.push("/login")
@@ -49,22 +46,21 @@ const Signup = () => {
     }
 
     return (
-        <div className="signin">
+        <div className="signUp">
             {console.log("User", user)}
-            <h1>Register</h1>
-            <input type="text" name="name" value={user.name} placeholder="Your Name" onChange={ handleChange }></input>
+            <h1>Sign Up Now!!</h1>
             <br/>
-            <input type="text" name="email" value={user.email} placeholder="Your Email" onChange={ handleChange }></input>
+            <input type="text" name="name" value={user.name} placeholder="Please enter your Name" onChange={ handle }></input>
             <br/>
-            <input type="text" name="contactNo" value={user.contactNo} placeholder="Your contact number" onChange={ handleChange }></input>
+            <input type="text" name="email" value={user.email} placeholder="Please enter your Email" onChange={ handle }></input>
             <br/>
-            <input type="password" name="password" value={user.password} placeholder="Your Password" onChange={ handleChange }></input>
+            <input type="text" name="contactNo" value={user.contactNo} placeholder="Please your contact number" onChange={ handle }></input>
             <br/>
-            <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re-enter Password" onChange={ handleChange }></input>
+            <input type="password" name="password" value={user.password} placeholder="Please enter a strong Password" onChange={ handle }></input>
             <br/>
-           
-        
-            <div className="button" onClick={signin} >Register</div>
+            <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Please Re-enter Password" onChange={ handle }></input>
+            <br/>
+            <div className="button" onClick={signUp} >Sign Up</div>
             <div>or</div>
             <div className="button" onClick={() => history.push("/login")}>Login</div>
         </div>
