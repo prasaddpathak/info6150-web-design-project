@@ -12,7 +12,7 @@ import { increaseTimesPlayed, setCurrentPlaying } from "../../../Store/Actions/m
 import SongName from "../SongNames/SongName";
 import { Skeleton } from "@material-ui/lab";
 import Box from "@material-ui/core/Box";
-import first from '../../MusicImg/musicpicture.jpg';
+import first from '../../../Assets/Img/Beach.jpg';
 
 function MusicCard(props) {
     const { name, img, author_name } = props.music;
@@ -36,8 +36,6 @@ function MusicCard(props) {
         dispatch(increaseTimesPlayed(props.music.id));
     }
 
-
-
     return (
         <div className={"music-card"}>
             {
@@ -52,7 +50,23 @@ function MusicCard(props) {
                     :
                     <>
                         <div onClick={handlePlay} className={"music-card-cover"} onMouseOver={handleResponse}>
-                            <img src={first} alt={name} />
+                            {/* {console.log("img:"+img)}
+                            {console.log("name:"+name)} */}
+
+                            {/* Below logic is for 
+                             - paylist img src : "http://localhost:3000/"+img" 
+                             - else condition to handle empty img details*/}
+                            {
+                            window.location.pathname.includes("home/playlist") ?
+                            console.log("get img name: "+img) : console.log("not in playlist")
+                            }
+                            {
+                                window.location.pathname.includes("home/playlist") ?
+                                img ? <img src={"http://localhost:3000/"+img} alt={name} /> : <img src={first} alt={name} />
+                                :
+                                img ? <img src={img} alt={name} /> : <img src={first} alt={name} />
+                                
+                            } 
                             <div className="play-circle">
                                 <PlayCircleFilledWhiteIcon />
                             </div>
