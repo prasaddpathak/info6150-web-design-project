@@ -11,11 +11,19 @@ class DropDownProfile extends React.Component {
         super(props);
     }
 
+    handleLogoutClick = () => {
+        console.log('Clicked Logout');
+        localStorage.removeItem("token");
+        // window.location.href = "/login";
+        // window.location.href("/login")
+        // window.location.reload();
+    }
+
     render() {
         return (
             <div className="dropdown-profile">
                 <a href="/home/accountSetting" ><HoverButton href={""} HoverButton Icon={AccountBox} variant={"text"} text={"Profile"} /></a>
-                <HoverButton Icon={ExitToApp} variant={"text"} text={"Logout"} />
+                <HoverButton Icon={ExitToApp} variant={"text"} text={"Logout"} onClickFunc = {this.handleLogoutClick}/>
                 {/*<HoverButton Icon={Explore} variant={"text"} text={"About"}/>*/}
             </div>
         );
