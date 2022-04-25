@@ -42,7 +42,7 @@ class Header extends React.Component {
     }
 
     handleOpenProfile() {
-        console.log('Clicked Profile');
+        // console.log('Clicked Profile');
         if (this.state.isLanguageListOpen === true)
             this.setState({
                 isOpenProfile : !this.state.isOpenProfile,
@@ -52,7 +52,7 @@ class Header extends React.Component {
             this.setState({
                 isOpenProfile : !this.state.isOpenProfile,
             });
-        console.log('State: ' + this.state.isLanguageListOpen); 
+        // console.log('State: ' + this.state.isLanguageListOpen); 
 
     }
 

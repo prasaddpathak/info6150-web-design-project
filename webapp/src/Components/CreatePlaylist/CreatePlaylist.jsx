@@ -3,6 +3,7 @@ import React from "react";
 import './CreatePlaylist.scss';
 import ItemChecklist from  './ItemChecklist/ItemChecklist';
 import { isExpired, decodeToken } from "react-jwt";
+import { history } from "react-router-dom";
 
 class CreatePlaylist extends React.Component {
 
@@ -20,7 +21,9 @@ class CreatePlaylist extends React.Component {
     }
 
     addPlaylistToUser(playlistName, selectedSongs) {
-
+        const token = localStorage.getItem("token");
+        console.log(` Conditional flow: ${token}`);
+        !token ? this.history.push("/login") : console.log(`Token Present`) 
         const myDecodedToken = decodeToken(localStorage.getItem("token"));
         const isMyTokenExpired = isExpired(localStorage.getItem("token"));
         console.log(`Is Expired : ${isMyTokenExpired} \nToken Details : `);

@@ -14,6 +14,8 @@ import CreatePlaylist from '../../Components/CreatePlaylist/CreatePlaylist';
 import AccountSetting from '../../Components/AccountSetting/AccountSetting';
 import EventPage from '../EventsPage/EventsPage';
 import PlaylistCardContainer from '../../Components/MusicContainer/PlaylistCardContainer/PlaylistCardContainer';
+import { useHistory } from "react-router-dom";
+
 
 class Home extends React.Component {
 
@@ -43,6 +45,9 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
+    const token = localStorage.getItem("token");
+    console.log(` Conditional flow: ${token}`);
+    !token ? window.location.href = "/login" : console.log(`Token Present`) 
     const path = window.location.pathname;
     console.log(path);
     const Component = this.getCurrPage(path);

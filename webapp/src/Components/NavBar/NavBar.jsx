@@ -4,6 +4,7 @@ import "./NavBar.scss";
 import NavBarOptions from "./NavBarOptions/NavBarOptions";
 import {ExploreOutlined, HomeOutlined, PlaylistPlay, SearchOutlined, Radio, EventNote, LibraryAdd, Delete} from "@material-ui/icons";
 import { isExpired, decodeToken } from "react-jwt";
+import { history } from "react-router-dom";
 
 class SideBar extends React.Component {
 
@@ -18,6 +19,9 @@ class SideBar extends React.Component {
         // console.log(`NavBar Token : ${this.props.authToken}`);
         // const myDecodedToken = decodeToken(this.props.authToken);
         // const isMyTokenExpired = isExpired(this.props.authToken);
+        const token = localStorage.getItem("token");
+        console.log(` Conditional flow: ${token}`);
+        !token ? window.location.href = "/login" : console.log(`Token Present`) 
         const myDecodedToken = decodeToken(localStorage.getItem("token"));
         const isMyTokenExpired = isExpired(localStorage.getItem("token"));
         console.log(`Is Expired : ${isMyTokenExpired} \nToken Details : `);
