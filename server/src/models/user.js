@@ -1,5 +1,7 @@
 import { hashSync,compareSync } from "bcrypt";
+import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
+import  {SESS_LIFETIME, SESS_SECRET} from '..//config/config.js';
 
 const Schema = new mongoose.Schema({
     name : {
@@ -33,7 +35,9 @@ const Schema = new mongoose.Schema({
     modifiedDate: {
         type: Date,
         default: Date.now
-    }
+    },
+    resetPassowordToken: String,
+    resetPasswordExpired:Date
 }, {skipVersioning: true});
 
 //hashing the password before sending to the database, this 'pre' is middleware and will run right 
@@ -50,6 +54,15 @@ Schema.methods.comparePasswords =function(password){
     return compareSync(password, this.password);
   }
 
+ Schema.methods.getSignedToken=function() {
+     return jwt.sign({
+        userId: userN._id,
+        email:userN.email},
+        SESS_SECRET,{
+            expiresIn:SESS_LIFETIME
+        }
+        )
+ }
 const model = mongoose.model('user', Schema);
 
 export default model;

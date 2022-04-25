@@ -3,13 +3,17 @@ import * as utils from './../helpers/utils.js';
 import bcrypt, {hash, hashSync } from 'bcrypt';
 import Model from '..//models/user.js'
 import express from 'express';
-import {SESS_SECRET} from '..//config/config.js';
+import {SESS_LIFETIME, SESS_SECRET} from '..//config/config.js';
 import jwt from 'jsonwebtoken';
 
 
 export const post = async(request, response) => {
     try {
         //put await for the variable since its a async function
+        // const userNew=await Model.findOne({email:request.body.email})
+        // if(userNew){
+        //     return response.status(409).send({message:"User already present"});
+        // }
         const payload = request.body;
         const user = await userService.save(payload); 
         utils.setSuccessResponse({ message: `User successfully added` }, response);
@@ -83,10 +87,18 @@ export const login = async(request, response) => {
         //here the user-password is being compared to the hashed password in the database
             if (userN && userN.comparePasswords(password))
              {
-              
-                utils.setSuccessResponse({ message: `Successfully Logged In`, userID: user._id }, response);
+
+                const token=jwt.sign({
+                    email:userN.email,
+                    userId: userN._id
+                },SESS_SECRET,{
+                    expiresIn:SESS_LIFETIME
+                });
+               
+
+                utils.setSuccessResponse({ message: `Successfully Logged In`, token:token }, response);
             } else {
-                utils.setSuccessResponse({ message: `Password Did not match` }, response);
+                utils.setSuccessResponse({ message: `Oops!! Password Did not match,Invalid credentials` }, response);
             }
         } else //if user does not exist
         {
