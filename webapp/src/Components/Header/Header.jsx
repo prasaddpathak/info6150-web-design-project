@@ -70,29 +70,34 @@ class Header extends React.Component {
         const myDecodedToken = decodeToken(token);
         const initials = myDecodedToken.email[0].toUpperCase()
         this.setState({
-            avatarInitials : initials 
+            avatarInitials : initials
         });
     }
 
     render(){
         return (
-            // <nav style={this.ElementStyle}>
             <nav>
                 <Brand/>
                 <SearchBar/>
-                <div className={"language"} onClick={this.handleOpenGenreList}>
-                    <Button className={"Dropdown-btn"}
-                            endIcon={this.state.isLanguageListOpen ? <ExpandMoreIcon/> : <ExpandLessIcon/>}>
-                        <div className="wrapper">
-                            <div>Genre</div>
-                        </div>
-                    </Button>
-                    {
-                        this.state.isLanguageListOpen
-                        &&
-                        <DropDownGenreList/>
-                    }
-                </div>
+                {
+                    window.location.pathname === "/home" ? 
+                    <div className={"language"} onClick={this.handleOpenGenreList}>
+                        <Button className={"Dropdown-btn"}
+                                endIcon={this.state.isLanguageListOpen ? <ExpandMoreIcon/> : <ExpandLessIcon/>}>
+                            <div className="wrapper">
+                                <div>Genre</div>
+                            </div>
+                        </Button>
+                        {
+                            this.state.isLanguageListOpen
+                            && 
+                            <DropDownGenreList/> 
+                        }
+                    </div>
+                    :
+                    <></>
+                }
+
                 <div className="profile" onClick={this.handleOpenProfile}>
                     <Button className={"Dropdown-btn"}
                             startIcon={<Avatar style={{width:'30px',height:'30px',padding:'18px'}} >{this.state.avatarInitials}</Avatar>}
