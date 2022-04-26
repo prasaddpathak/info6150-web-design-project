@@ -13,11 +13,11 @@ import SongName from "../SongNames/SongName";
 import { Skeleton } from "@material-ui/lab";
 import Box from "@material-ui/core/Box";
 
-// import first from '../../MusicImg/musicpicture.jpg';
+import first from '../../MusicImg/musicpicture.jpg';
 import { Link } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 // =======
- import first from '../../../Assets/Img/Beach.jpg';
+// import first from '../../../Assets/Img/Beach.jpg';
 
 
 
@@ -70,7 +70,6 @@ function MusicCard(props) {
                             <img src={first} alt={name} />
                             <div hr className="play-circle">
                                 <a onClick={selectSong}> <PlayCircleFilledWhiteIcon /></a>
-                            </div>
 
 
                             {/* {console.log("img:"+img)}
