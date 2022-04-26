@@ -1,9 +1,7 @@
 /*
-    Author:     Prasad A. Pathak
-    NEU ID:     002925486
-    Email:      pathak.pra@northeastern.edu
+    Author:     Prasad Pathak
     Subject:    INFO6150 - Web Design and UX
-    Purpose:    Javascript file for the Todo Item Container React component
+    Purpose:    JSX file for the Header Bar
 */
 import './Header.scss';
 import React from 'react';
