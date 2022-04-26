@@ -14,10 +14,10 @@ import { Skeleton } from "@material-ui/lab";
 import Box from "@material-ui/core/Box";
 import first from '../../MusicImg/musicpicture.jpg';
 import { Link } from 'react-router-dom';
-
+import { useHistory } from "react-router-dom";
 function MusicCard(props) {
     const { name, img, author_name } = props.music;
-
+    const history = useHistory();
     const [isHovered, setHovered] = useState(false);
 
     function handleResponse() {
@@ -36,7 +36,11 @@ function MusicCard(props) {
         dispatch(setCurrentPlaying(props.music))
         dispatch(increaseTimesPlayed(props.music.id));
     }
-
+    function selectSong() {
+        sessionStorage.setItem('songName', name)
+        history.push("/home/playMusic");
+        window.location.reload();
+    }
 
 
     return (
@@ -52,10 +56,11 @@ function MusicCard(props) {
                     </div>
                     :
                     <>
+
                         <div onClick={handlePlay} className={"music-card-cover"} onMouseOver={handleResponse}>
                             <img src={first} alt={name} />
                             <div hr className="play-circle">
-                                <a href="/home/playMusic"> <PlayCircleFilledWhiteIcon /></a>
+                                <a onClick={selectSong}> <PlayCircleFilledWhiteIcon /></a>
                             </div>
                         </div>
                         <React.Fragment>
