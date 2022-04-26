@@ -33,7 +33,7 @@ const Login = (props) => {
 
                 setLoginUser(res.data.token)
                 // console.log(res.data.token)
-                historySignups.push("/home");
+                res.data.token ? historySignups.push("/home") : alert('Incorrect Password')
             });
             
 
