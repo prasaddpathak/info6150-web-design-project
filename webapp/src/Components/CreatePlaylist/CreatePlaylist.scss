@@ -1,16 +1,17 @@
+/*
+    Author:     Prasad Pathak
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    SCSS file for CreatePlaylist Page
+*/
 @import '../../Utils/scss/variables';
 
 .create-playlist-container{
     height: 90vh;
     overflow-y: auto;
     background: radial-gradient(circle, rgba($color-orange,0.7) 0%, rgba(148,187,233,1) 100%);
-    // background-image: url('./../../Assets/Img/pexels-felipe-ribeiro-2271683.jpg');
-    // background-size: cover;
-    // background-color: rgba($color-blue,0.5);
     color: aliceblue;
 
     .create-playlist-box{
-
         background: rgba(0, 0, 0, 0.45);
         border-radius: 16px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

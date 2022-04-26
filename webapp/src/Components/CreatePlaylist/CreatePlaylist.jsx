@@ -1,9 +1,13 @@
+/*
+    Author:     Prasad Pathak
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    JSX file for CreatePlaylist page
+*/
 import axios from "axios";
 import React from "react";
 import './CreatePlaylist.scss';
 import ItemChecklist from  './ItemChecklist/ItemChecklist';
-import { isExpired, decodeToken } from "react-jwt";
-import { history } from "react-router-dom";
+import { decodeToken } from "react-jwt";
 
 class CreatePlaylist extends React.Component {
 
@@ -21,21 +25,17 @@ class CreatePlaylist extends React.Component {
     }
 
     addPlaylistToUser(playlistName, selectedSongs) {
+        //Check if auth token is present
         const token = localStorage.getItem("token");
-        console.log(` Conditional flow: ${token}`);
         !token ? this.history.push("/login") : console.log(`Token Present`) 
         const myDecodedToken = decodeToken(localStorage.getItem("token"));
-        const isMyTokenExpired = isExpired(localStorage.getItem("token"));
-        console.log(`Is Expired : ${isMyTokenExpired} \nToken Details : `);
-        console.log(myDecodedToken);
-        console.log(myDecodedToken.userId);
         const userId = myDecodedToken.userId;
 
-        console.log(`Playlist Name : ${playlistName} \nSelected Songs: ${selectedSongs}`);
         const playlist = {
             "playlist_name" : playlistName,
             "playlist_details" : selectedSongs
         }
+        // Append the new playlist to the existing array of playlists
         axios.put(
             `http://127.0.0.1:9008/user/${userId}/playlist`,
             playlist
@@ -44,17 +44,13 @@ class CreatePlaylist extends React.Component {
         })
     }
 
-
     onClick(e) {
-        // e.preventDefault()
         const elements = document.getElementsByClassName('checked');
         const selectedSongsFromUI = []
         for(let item of elements) {
             selectedSongsFromUI.push(item.name);
         }
-        // console.log(selectedSongsFromUI);
         const playlistNameTag = document.getElementsByClassName('PlaylistName');
-        // console.log(playlistNameTag[0].value);
         this.addPlaylistToUser(playlistNameTag[0].value, selectedSongsFromUI)
     }
 

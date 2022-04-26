@@ -1,3 +1,8 @@
+/*
+    Author:     Prasad Pathak
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    JSX file for GenreList Element
+*/
 import React from 'react';
 import './LangList.scss';
 import Button from "@material-ui/core/Button";

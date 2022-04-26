@@ -1,10 +1,12 @@
+/*
+    Author:     Prasad Pathak
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    JSX file for DropDownGenreList Component
+*/
 import React from "react";
 import './DropDownGenreList.scss';
 import Button from "@material-ui/core/Button";
 import LangList from "./LangList/LangList";
-// import {ThemeContext} from "../../api/Theme";
-// import {useDispatch} from "react-redux";
-// import {setMusicLang} from "../../actions/actions";
 
 class DropDownGenreList extends React.Component {
 
@@ -47,26 +49,25 @@ class DropDownGenreList extends React.Component {
     };
 
     render() {
-    return (
-        <div className={"dropdown"}>
-            <div className={"dropdown-head"}>
-                <p>Pick the Genre you want to listen to</p>
+        return (
+            <div className={"dropdown"}>
+                <div className={"dropdown-head"}>
+                    <p>Pick the Genre you want to listen to</p>
+                </div>
+                <div className={"lang-list"}>
+                    {this.state.listOfLanguage.map((item) => {
+                        return (
+                            <LangList onClick={this.handleSelected} key={item} item={item}/>
+                        );
+                    })}
+                </div>
+                <div className={"button-div"}>
+                    <Button onClick={this.handleLangSelect}>
+                        Update
+                    </Button>
+                </div>
             </div>
-            <div className={"lang-list"}>
-                {this.state.listOfLanguage.map((item) => {
-                    return (
-                        <LangList onClick={this.handleSelected} key={item} item={item}/>
-                    );
-                })}
-            </div>
-            <div className={"button-div"}>
-                <Button onClick={this.handleLangSelect}>
-                    Update
-                </Button>
-            </div>
-        </div>
-    );
+        );
     }
-
 }
 export default DropDownGenreList;
