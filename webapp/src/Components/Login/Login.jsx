@@ -37,7 +37,7 @@ const Login = ({ setLoginUser }) => {
                 alert(res.data.message)
                 sessionStorage.setItem('userID', res.data.userID)
                 setLoginUser(res.data.user)
-                historySignups.get("/")
+                historySignups.push("/home")
             })
 
 //         function login(setLoginUser) {
@@ -65,11 +65,9 @@ const Login = ({ setLoginUser }) => {
             <input type="password" name="password" value={user.password} placeholder="Please enter your password" onChange={handle}></input>
 
             <br />
-            <div className="buttonlogin" onClick={login}>Login</div>
-// =======
-//             <br/>
-//             <div className="buttonlogin" onClick={() => login(props.setLoginUser)}>Login</div>
-// >>>>>>> develop
+             <div className="buttonlogin" onClick={login}>Login</div> 
+           
+             {/* <div className="buttonlogin" onClick={() => login(props.setLoginUser)}>Login</div> */}
             <div>or</div>
             <div className="buttonsignup" onClick={() => historySignups.push("/signup")}>Signup</div>
 
