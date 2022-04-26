@@ -1,9 +1,9 @@
 import * as userService from './../services/user-services.js';
 import * as utils from './../helpers/utils.js';
-import bcrypt, { hash, hashSync } from 'bcrypt';
+import bcrypt, {hash, hashSync } from 'bcrypt';
 import Model from '..//models/user.js'
 import express from 'express';
-import { SESS_LIFETIME, SESS_SECRET } from '..//config/config.js';
+import {SESS_LIFETIME, SESS_SECRET} from '..//config/config.js';
 import jwt from 'jsonwebtoken';
 
 
@@ -15,7 +15,7 @@ export const post = async(request, response) => {
         //     return response.status(409).send({message:"User already present"});
         // }
         const payload = request.body;
-        const user = await userService.save(payload);
+        const user = await userService.save(payload); 
         utils.setSuccessResponse({ message: `User successfully added` }, response);
     } catch (error) {
         utils.setErrorResponse(error, response);
@@ -81,21 +81,22 @@ export const login = async(request, response) => {
 
         const { email, password } = request.body;
         const user = await userService.checkPassword(email);
-        const userN = await Model.findOne({ email });
+        const userN=await Model.findOne({email});
         if (user) // if the user is already present
         {
+        //here the user-password is being compared to the hashed password in the database
+            if (userN && userN.comparePasswords(password))
+             {
 
-            if (password === user.password) {
-
-                const token = jwt.sign({
-                    email: userN.email,
+                const token=jwt.sign({
+                    email:userN.email,
                     userId: userN._id
-                }, SESS_SECRET, {
-                    expiresIn: SESS_LIFETIME
+                },SESS_SECRET,{
+                    expiresIn:SESS_LIFETIME
                 });
+               
 
-
-                utils.setSuccessResponse({ message: `Successfully Logged In`, token: token, userID: userN._id }, response);
+                utils.setSuccessResponse({ message: `Successfully Logged In`, token:token }, response);
             } else {
                 utils.setSuccessResponse({ message: `Oops!! Password Did not match,Invalid credentials` }, response);
             }
@@ -108,31 +109,31 @@ export const login = async(request, response) => {
     }
 }
 
-export const getPlaylists = async(request, response) => {
+export const getPlaylists = async (request,response) => {
     try {
         const id = request.params.id;
         console.log(`Getting playlists for: ${id}`);
         const user = await userService.getPlaylistsForAUser(id);
-        utils.setSuccessResponse(user, response);
+        utils.setSuccessResponse(user,response);
 
     } catch (error) {
         utils.setErrorResponse(error, response);
     }
 }
 
-export const updatePlaylists = async(request, response) => {
+export const updatePlaylists = async (request,response) => {
     try {
         const id = request.params.id;
         const playlist_name = request.body.playlist_name;
         const playlist_details = request.body.playlist_details.map((value) => {
-            return {
-                'song_name': value
+            return{
+                'song_name' : value  
             }
         });
 
         const playlist = {
-            'playlist_name': playlist_name,
-            'playlist_details': playlist_details
+            'playlist_name' : playlist_name,
+            'playlist_details' : playlist_details
         }
 
         // console.log(payload);
@@ -143,7 +144,7 @@ export const updatePlaylists = async(request, response) => {
     }
 }
 
-export const deletePlaylist = async(request, response) => {
+export const deletePlaylist = async (request,response) => {
     try {
         const id = request.params.id;
         const playlist_name = request.params.playlist;
