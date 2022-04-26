@@ -1,10 +1,14 @@
+/*
+    Author:     Prasad Pathak
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    JSX file for NavBar Component
+*/
 import React from "react";
 import axios from "axios";
 import "./NavBar.scss";
 import NavBarOptions from "./NavBarOptions/NavBarOptions";
-import {ExploreOutlined, HomeOutlined, PlaylistPlay, SearchOutlined, Radio, EventNote, LibraryAdd, Delete} from "@material-ui/icons";
-import { isExpired, decodeToken } from "react-jwt";
-import { history } from "react-router-dom";
+import {ExploreOutlined, HomeOutlined, PlaylistPlay, SearchOutlined, Radio, EventNote, LibraryAdd} from "@material-ui/icons";
+import { decodeToken } from "react-jwt";
 
 class SideBar extends React.Component {
 
@@ -16,27 +20,16 @@ class SideBar extends React.Component {
     }
 
     componentDidMount() {
-        // console.log(`NavBar Token : ${this.props.authToken}`);
-        // const myDecodedToken = decodeToken(this.props.authToken);
-        // const isMyTokenExpired = isExpired(this.props.authToken);
         const token = localStorage.getItem("token");
-        console.log(` Conditional flow: ${token}`);
         !token ? window.location.href = "/login" : console.log(`Token Present`) 
         const myDecodedToken = decodeToken(localStorage.getItem("token"));
-        const isMyTokenExpired = isExpired(localStorage.getItem("token"));
-        console.log(`Is Expired : ${isMyTokenExpired} \nToken Details : `);
-        console.log(myDecodedToken);
-        console.log(myDecodedToken.userId);
         const userId = myDecodedToken.userId;
 
         axios.get(`http://127.0.0.1:9008/user/${userId}/playlist`)
         .then((response) => {
             console.log(`Returned Playlists:  ${response.data}`);
             const playlistsFetched = response.data.map((i,k) => 
-                
                      <NavBarOptions className={"lib-sub"} Icon={PlaylistPlay} href={"/home/playlist/"+i}  title={i} key={k} isPlaylistItem = {true} />)
-                    // <NavBarOptions className={"lib-sub"} Icon={PlaylistPlay} href={"/home/PlaylistCardContainer/"+i}  title={i} key={k} isPlaylistItem = {true} />)
-
             this.setState({
                 playlistTags : [...playlistsFetched]
             });

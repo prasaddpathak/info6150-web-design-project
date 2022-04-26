@@ -1,5 +1,9 @@
+/*
+    Author:     Prasad Pathak
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    JSX file for Header Logo
+*/
 import React from "react";
-import {Link} from "react-router-dom";
 import "./Brand.scss";
 import Logo from "../../../Assets/Img/logo.png";
 

@@ -1,3 +1,8 @@
+/*
+    Author:     Web of lies
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    SCSS file for DropDown option for Profile
+*/
 @import '../../../Utils/scss/variables';
 .dropdown-profile {
   background-color: $color-black;
@@ -6,7 +11,7 @@
   top: 10vh;
   right: 7px;
   border-radius: 0 0 10px 10px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid $color-white;
   user-select: none;
   display: flex;
   flex-direction: column;
@@ -15,5 +20,14 @@
   }
   .MuiButton-label{
     color: $color-white;
+  }
+  .MuiButton-root:hover {
+    background-color: $color-blue;
+    .MuiButton-label{
+      color: $color-black;
+    }
+    .MuiSvgIcon-root{
+      color: $color-black;
+    }
   }
 }

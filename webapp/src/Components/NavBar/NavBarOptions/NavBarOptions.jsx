@@ -1,16 +1,17 @@
+/*
+    Author:     Prasad Pathak
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    JSX file for NavBar Item Component
+*/
 import React from "react";
 import './NavBarOptions.scss'
-// import {Button} from "@material-ui/core";
 import {Link} from "react-router-dom";
 import {Button, IconButton} from '@material-ui/core';
 import {Delete} from "@material-ui/icons";
 import axios from "axios";
 import CardContainer from '../../MusicContainer/CardContainer/CardContainer';
 
-
-
 class SideBarOptions extends React.Component {
-
 
     constructor(props) {
         super(props);
@@ -39,7 +40,6 @@ class SideBarOptions extends React.Component {
         const title = this.props.title;
         const className = this.props.className;
         const isPlaylistItem = this.props.isPlaylistItem;
-        // const sideBarRef = useRef();
         const href = this.props.href;
         const playlistClass = isPlaylistItem? "playlistItem" : "";
         return (
@@ -48,22 +48,6 @@ class SideBarOptions extends React.Component {
                     <Link ref={this.myRef} to={href}/>
                     {title}
                 </Button>
-                {/* <Button onClick={this.navigateToPlaylist} className={className} startIcon={Icon && <Icon/>}>
-                    <Link ref={this.myRef} to={href}/>
-                    {title}
-                </Button> */}
-                {/* {
-                    !isPlaylistItem ? 
-                    <Button onClick={()=>{this.myRef.current.click();window.location.reload();}} className={className} startIcon={Icon && <Icon/>}>
-                    <Link ref={this.myRef} to={href}/>
-                    {title}
-                    </Button>
-                :
-                <Button onClick={this.navigateToPlaylist} className={className} startIcon={Icon && <Icon/>}>
-                <Link ref={this.myRef} to={href}/>
-                {title}
-                </Button>
-                } */}
                 {
                     isPlaylistItem ? 
                         <IconButton color="secondary" onClick={this.handleDelete}>
@@ -71,11 +55,8 @@ class SideBarOptions extends React.Component {
                         </IconButton>
                     :
                     <></>
-                }  
-                
-                
+                }    
             </div>
-            
         );
     }
 }
