@@ -1,8 +1,13 @@
+/*
+    Author:     Prasad Pathak
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    SCSS file for SearchBar Component
+*/
 .SearchBar {
   flex: 1;
   padding: 0;
   position: relative;
-  margin: 0 50px;
+  margin: 0 75px;
   transition: margin .15s ease-in-out;
 
   .search-container {
@@ -50,7 +55,7 @@
 }
 
 .open {
-  margin: 0;
+  margin: 25px;
 }
 
 @media only screen and (max-width: 215px) {

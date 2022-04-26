@@ -5,7 +5,10 @@ import logo from './../../Assets/Img/logo.png';
 import axios from "axios";
 
 
+
 const Login = ({ setLoginUser }) => {
+
+
 
     //declaring user state with name and email addresses for login purpose
     const [user, setUser] = useState({
@@ -37,6 +40,17 @@ const Login = ({ setLoginUser }) => {
                 historySignups.get("/")
             })
 
+//         function login(setLoginUser) {
+//             axios.post("http://localhost:9008/login",user)
+//             .then(res=>{
+
+//                 setLoginUser(res.data.token)
+//                 // console.log(res.data.token)
+//                 historySignups.push("/home");
+//             });
+            
+// >>>>>>> develop
+
     }
     return (
 
@@ -49,8 +63,13 @@ const Login = ({ setLoginUser }) => {
             <input type="text" name="email" value={user.email} placeholder="Please enter your email" onChange={handle}></input>
             <br />
             <input type="password" name="password" value={user.password} placeholder="Please enter your password" onChange={handle}></input>
+
             <br />
             <div className="buttonlogin" onClick={login}>Login</div>
+// =======
+//             <br/>
+//             <div className="buttonlogin" onClick={() => login(props.setLoginUser)}>Login</div>
+// >>>>>>> develop
             <div>or</div>
             <div className="buttonsignup" onClick={() => historySignups.push("/signup")}>Signup</div>
 

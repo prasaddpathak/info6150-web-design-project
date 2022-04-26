@@ -1,6 +1,11 @@
 import React from 'react'
+
 // import Song from '../../Assets/Audio/song.mp3';
 //import songImg from '../Assets/musicpicture.jpg';
+
+import Song from '../../Assets/Audio/song.mp3';
+import songImg from '../../Assets/Img/songImage.jpg';
+
 import { Link } from 'react-router-dom';
 import './MusicPlaying.scss'
 // import song from '../../Assets/Audio/Song_Music/song.mp3'

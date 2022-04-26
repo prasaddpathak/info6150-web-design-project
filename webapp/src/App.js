@@ -24,23 +24,25 @@ class App extends React.Component {
             sessionStorage.setItem('theme', 'light')
         }
     }
-    render() {
-        return ( <
-            ThemeContext.Provider value = { themes.light } >
-            <
-            Router >
-            <
-            Switch >
-            <
-            Route exact path = "/" > < Homepage / > < /Route> <
-            Route path = "/login" > < Login / > < /Route> <
-            Route path = "/signup" > < Signup / > < /Route> <
-            Route path = "/home" > < Home / > < /Route>
 
-            <
-            /Switch> < /
-            Router > <
-            /ThemeContext.Provider>
+    setLoginUser = (token)=>{
+        localStorage.setItem("token",token)
+        // console.log('Logged In, adding user data :' + this.state.token);
+        
+    }
+
+    render() {
+        return ( 
+            <ThemeContext.Provider value = { themes.light } >
+                <Router>
+                    <Switch>
+                        <Route exact path = "/" > < Homepage/> </Route> 
+                        <Route path = "/login"> < Login setLoginUser = {this.setLoginUser}/> </Route> 
+                        <Route path = "/signup" > < Signup/> </Route> 
+                        <Route path = "/home" > < Home/> </Route>
+                    </Switch> 
+                </Router> 
+            </ThemeContext.Provider>
         );
     }
 }

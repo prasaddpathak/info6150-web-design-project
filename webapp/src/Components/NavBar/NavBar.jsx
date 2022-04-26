@@ -1,8 +1,14 @@
+/*
+    Author:     Prasad Pathak
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    JSX file for NavBar Component
+*/
 import React from "react";
 import axios from "axios";
 import "./NavBar.scss";
 import NavBarOptions from "./NavBarOptions/NavBarOptions";
-import {ExploreOutlined, HomeOutlined, PlaylistPlay, SearchOutlined, Radio, EventNote, LibraryAdd, Delete} from "@material-ui/icons";
+import {ExploreOutlined, HomeOutlined, PlaylistPlay, SearchOutlined, Radio, EventNote, LibraryAdd} from "@material-ui/icons";
+import { decodeToken } from "react-jwt";
 
 class SideBar extends React.Component {
 
@@ -14,14 +20,16 @@ class SideBar extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('http://127.0.0.1:9008/user/6260db9f897199ffa4f2135e/playlist')
+        const token = localStorage.getItem("token");
+        !token ? window.location.href = "/login" : console.log(`Token Present`) 
+        const myDecodedToken = decodeToken(localStorage.getItem("token"));
+        const userId = myDecodedToken.userId;
+
+        axios.get(`http://127.0.0.1:9008/user/${userId}/playlist`)
         .then((response) => {
             console.log(`Returned Playlists:  ${response.data}`);
             const playlistsFetched = response.data.map((i,k) => 
-                
                      <NavBarOptions className={"lib-sub"} Icon={PlaylistPlay} href={"/home/playlist/"+i}  title={i} key={k} isPlaylistItem = {true} />)
-                    // <NavBarOptions className={"lib-sub"} Icon={PlaylistPlay} href={"/home/PlaylistCardContainer/"+i}  title={i} key={k} isPlaylistItem = {true} />)
-
             this.setState({
                 playlistTags : [...playlistsFetched]
             });

@@ -14,6 +14,8 @@ import CreatePlaylist from '../../Components/CreatePlaylist/CreatePlaylist';
 import AccountSetting from '../../Components/AccountSetting/AccountSetting';
 import EventPage from '../EventsPage/EventsPage';
 import PlaylistCardContainer from '../../Components/MusicContainer/PlaylistCardContainer/PlaylistCardContainer';
+import { useHistory } from "react-router-dom";
+
 
 class Home extends React.Component {
 
@@ -34,7 +36,7 @@ class Home extends React.Component {
       case "/home/events":
         return <EventPage />
       case "/home/playlist":
-        return <CreatePlaylist />
+        return <CreatePlaylist/>
       case "/home/playMusic":
         return <MusicPlaying />
       case "/home/accountSetting":
@@ -43,6 +45,9 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
+    const token = localStorage.getItem("token");
+    console.log(` Conditional flow: ${token}`);
+    !token ? window.location.href = "/login" : console.log(`Token Present`) 
     const path = window.location.pathname;
     console.log(path);
     const Component = this.getCurrPage(path);
@@ -57,7 +62,7 @@ class Home extends React.Component {
         <Header></Header>
         <section className={"home-music-container"}>
           <div className="sidebar-home">
-            <NavBar />
+            <NavBar/>
           </div>
           <div className="main-home">
             {/* <CardContainer /> */}

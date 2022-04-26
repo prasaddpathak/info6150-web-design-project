@@ -1,3 +1,8 @@
+/*
+    Author:     Prasad Pathak
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    JSX file for Song Checklist Item
+*/
 import React from "react";
 import './ItemChecklist.scss'
 
@@ -16,7 +21,6 @@ class ItemChecklist extends React.Component {
     render() {
         const id = this.props.id;
         const title = this.props.title;
-        const href = this.props.href;
         return (
             <div className="checkbox-item">
                 <label>

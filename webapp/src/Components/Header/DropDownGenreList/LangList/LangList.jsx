@@ -1,6 +1,12 @@
+/*
+    Author:     Prasad Pathak
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    JSX file for GenreList Element
+*/
 import React from 'react';
 import './LangList.scss';
 import Button from "@material-ui/core/Button";
+import {Link} from "react-router-dom";
 
 class LangList extends React.Component {
 
@@ -36,6 +42,7 @@ class LangList extends React.Component {
     render() {
         return (
             <Button style={this.state.onSelect} onClick={this.handleSelected}>
+                <Link to={"/home/events"}/>
                 {this.props.item}
             </Button>
     )};
