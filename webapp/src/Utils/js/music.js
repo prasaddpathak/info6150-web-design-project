@@ -1,14 +1,14 @@
 import axios from "axios";
 
-const callMusicData = async () => {
-let axios = require('axios');
-let res = await axios.get('http://localhost:9008/music');
-let allmusicdb =  JSON(res.data);
-console.log("allmusicdb: "+allmusicdb);
-return allmusicdb;
+const callMusicData = async() => {
+    let axios = require('axios');
+    let res = await axios.get('http://localhost:9008/music');
+    let allmusicdb = JSON(res.data);
+    console.log("allmusicdb: " + allmusicdb);
+    return allmusicdb;
 }
 
-let musicDB = {callMusicData};
+let musicDB = { callMusicData };
 
 export default musicDB;
 
