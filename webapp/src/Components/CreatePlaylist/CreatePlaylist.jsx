@@ -81,7 +81,7 @@ class CreatePlaylist extends React.Component {
                     <form onSubmit={this.onClick}>
                         <label>
                             Playlist Name:
-                            <input type="text" className="PlaylistName" name="Playlist Name" id="playlistName" />
+                            <input type="text" className="PlaylistName" name="Playlist Name" id="playlistName" required/>
                         </label>
                         {this.state.songListTags}
                         <br></br>
