@@ -9,6 +9,7 @@ import './PlaylistCardContainer.scss';
 import Card from '../Card/Card';
 import { useSelector } from "react-redux";
 import Container from "../Containers/Container";
+import { decodeToken } from "react-jwt";
 
 function PlaylistCardContainer() {
     const playlistNameArr = window.location.pathname.split('/');
@@ -31,8 +32,12 @@ function PlaylistCardContainer() {
     ]);
     
     const getPlaylistsOfAUser = () => {
+        const token = localStorage.getItem("token");
+        !token ? window.location.href = "/login" : console.log(`Token Present`) 
+        const myDecodedToken = decodeToken(localStorage.getItem("token"));
+        const userId = myDecodedToken.userId;
         axios
-            .get("http://localhost:9008/user/6260db9f897199ffa4f2135e",{
+            .get(`http://localhost:9008/user/${userId}`,{
                 responseType: 'json'
               })
             .then(function (response) {

@@ -41,6 +41,8 @@ class Home extends React.Component {
         return <MusicPlaying />
       case "/home/accountSetting":
         return <AccountSetting />
+      default :
+        return <PlaylistCardContainer/>  
     }
   }
 
