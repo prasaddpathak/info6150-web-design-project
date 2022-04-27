@@ -44,8 +44,8 @@ class SideBar extends React.Component {
                         <span>LIBRARY</span>
                     </p>
                     <NavBarOptions className={"lib-sub"} Icon={HomeOutlined} href={"/home"} title={"Home"} />
-                    <NavBarOptions className={"lib-sub"} Icon={ExploreOutlined} href={"/home/about"}  title={"About"}/>
-                    <NavBarOptions className={"lib-sub"} Icon={SearchOutlined} href={"/home/search"}  title={"Search"}/>
+                    {/* <NavBarOptions className={"lib-sub"} Icon={ExploreOutlined} href={"/home/about"}  title={"About"}/>
+                    <NavBarOptions className={"lib-sub"} Icon={SearchOutlined} href={"/home/search"}  title={"Search"}/> */}
                     <NavBarOptions className={"lib-sub"} Icon={Radio} href={"/home/radio"}  title={"Radio"}/>
                     <NavBarOptions className={"lib-sub"} Icon={EventNote} href={"/home/events"}  title={"Events"}/>
                 </div>
