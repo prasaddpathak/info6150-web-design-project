@@ -28,11 +28,11 @@ On the Aux is an end-to-end integrated solution which would let a user listen to
 - [x] Create / Delete Playlist for a User
 - [x] Music Events 
 - [x] Change Application Color theme
-- [] Personalized Music Recommendations
-- [] Personalized Events Recommendations
-- [] Search Feature
-- [] Filtering Feature
-- [] Events Registration & Payments
+- [ ] Personalized Music Recommendations
+- [ ] Personalized Events Recommendations
+- [ ] Search Feature
+- [ ] Filtering Feature
+- [ ] Events Registration & Payments
 
 ## Steps to Run
 1. Clone the repository
