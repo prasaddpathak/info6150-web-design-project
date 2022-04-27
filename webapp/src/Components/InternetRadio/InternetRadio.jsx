@@ -1,3 +1,8 @@
+/*
+    Author:     Web of Lies
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    JSX file for Internet Radio
+*/
 import React from 'react'
 import { Box } from '@material-ui/core';
 import { Slider } from '@material-ui/core';
@@ -86,12 +91,6 @@ class InternetRadio extends React.Component {
     }
     // Rdio station port has to be visible as value(ex:- 70.0,80.0 etc)
     valuetext = (value) => {
-        // console.log(this.state.stations,value)
-        // if(this.state.stations.indexOf(value) != -1){
-        //     this.setState({show:true})
-        // }else{
-        //     this.setState({show:false})
-        // }
         return `${value}hz`;
     }
     //Changestation  fucntion is made for changing the radio port and set the value is true for defined port 
