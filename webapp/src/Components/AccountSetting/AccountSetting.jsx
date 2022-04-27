@@ -2,7 +2,8 @@ import React from "react";
 import Toggle from "../../Utils/js/toggle";
 import './AccountSetting.scss'
 import { Link } from "react-router-dom";
-import axios from 'axios'
+import axios from 'axios';
+import { decodeToken } from "react-jwt";
 //Define the state of the forms
 class AccountSetting extends React.Component {
     constructor(props) {
@@ -28,10 +29,15 @@ class AccountSetting extends React.Component {
     submitPasswordUpdate = (e) => {
         this.setState({ passwordMsg: "" })
         e.preventDefault()
-        let emailID = sessionStorage.getItem('userID')
+        const token = localStorage.getItem("token");
+        !token ? this.history.push("/login") : console.log(`Token Present`)
+        const myDecodedToken = decodeToken(localStorage.getItem("token"));
+        const userId = myDecodedToken.userId;
+        // let emailID = sessionStorage.getItem('userID')
         if (this.state.passwordUpdate.password == this.state.passwordUpdate.repassword) {
             let body = { password: this.state.passwordUpdate.password }
-            axios.put('http://localhost:9008/user/' + emailID, body).then(res => {
+            axios.put('http://localhost:9008/user/' + userId, body).then(res => {
+                // this.handleChangePassword(h)
                 this.setState({ passwordMsg: "Password Updated Successfully" })
             }).catch(err => {
                 this.setState({ passwordMsg: "Server Error!" })
@@ -45,9 +51,13 @@ class AccountSetting extends React.Component {
     submitPDetailsUpdate = (e) => {
         e.preventDefault()
         if (this.state.pDetailsMsg == "") {
-            let emailID = sessionStorage.getItem('userID')
+            const token = localStorage.getItem("token");
+            !token ? this.history.push("/login") : console.log(`Token Present`)
+            const myDecodedToken = decodeToken(localStorage.getItem("token"));
+            const userId = myDecodedToken.userId;
+            // let emailID = sessionStorage.getItem('userID')
             let body = { ...this.state.pDetails }
-            axios.put('http://localhost:9008/user/' + emailID, body).then(res => {
+            axios.put('http://localhost:9008/user/' + userId, body).then(res => {
                 this.setState({ pDetailsMsg: "Personal Details Updated Successfully" })
             }).catch(err => {
                 this.setState({ pDetailsMsg: "Server Error!" })
