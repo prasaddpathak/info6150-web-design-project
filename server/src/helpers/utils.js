@@ -1,3 +1,8 @@
+/*
+    Author:     Web of lies
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    helper component
+*/
 import { json } from "express";
 
 export const setErrorResponse = (error, response) => {

@@ -12,7 +12,8 @@ class DropDownProfile extends React.Component {
     constructor(props) {
         super(props);
     }
-
+    
+//logout function is defined here which removes that jwt token
     handleLogoutClick = () => {
         console.log('Clicked Logout');
         localStorage.removeItem("token");

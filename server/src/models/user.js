@@ -1,3 +1,9 @@
+/*
+    Author:     Web of lies
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    Schema for User
+*/
+
 import { hashSync, compareSync } from "bcrypt";
 import jwt from "jsonwebtoken";
 
