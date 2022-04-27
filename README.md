@@ -4,7 +4,7 @@
 WEB OF LIES
 
 ## Team Members
-1. Prasad Pathak  (pathak.pra@northeastern.edu)
+1. Web Of Lies  (pathak.pra@northeastern.edu)
 2. Gloria Singh   (singh.gl@northeastern.edu)
 3. Trisha Ghorpade (ghorpade.t@northeastern.edu)
 4. Sreyoshi Ghosh (ghosh.sr@northeastern.edu)

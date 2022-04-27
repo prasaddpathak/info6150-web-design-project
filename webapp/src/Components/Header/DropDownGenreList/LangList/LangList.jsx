@@ -1,5 +1,5 @@
 /*
-    Author:     Prasad Pathak
+    Author:     Web Of Lies
     Subject:    INFO6150 - Web Design and UX
     Purpose:    JSX file for GenreList Element
 */
