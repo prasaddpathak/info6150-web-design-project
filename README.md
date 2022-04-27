@@ -1,43 +1,48 @@
-## INFO6150 Spring Final Project
+# **INFO6150 Spring Final Project**
 
---------------------------------------------------
-
-# Team Name- 
-
+## Team Name
 WEB OF LIES
-Test Add
 
----------------------------------------------------
+## Team Members
+1. Web Of Lies  (pathak.pra@northeastern.edu)
+2. Gloria Singh   (singh.gl@northeastern.edu)
+3. Trisha Ghorpade (ghorpade.t@northeastern.edu)
+4. Sreyoshi Ghosh (ghosh.sr@northeastern.edu)
 
-# Team Members and email ID-
 
-Prasad Pathak  (pathak.pra@northeastern.edu)
-Gloria Singh   (singh.gl@northeastern.edu)
-Trisha Ghorpade (ghorpade.t@northeastern.edu)
-Sreyoshi Ghosh (ghosh.sr@northeastern.edu)
-
-----------------------------------------------------
-
-# Project Category-
-
+## Project Category
 Music Website for entertainment
 
----------------------------------------------------
+## Project Description
+As the music industry keeps growing, there is a dire need of an application which would provide music streaming solution along with a personalized events portal. 
 
-# Project Description-
+On the Aux is an end-to-end integrated solution which would let a user listen to songs, internet radio and browse music events. Users also have the option to create playlists from the existing music database and delete their playlists.
 
-As of now, we don't have a webpage or an application that allows user to stream songs and book your event tickets. This proposed project intends to provide users with a good listening experience and to be able to attend social events according to their music taste. The website will have a login page, user must provide their authenticated user ID and password. A user would be able to create an account. The website will allow the users to create their playlist as they want, they can mark their favorites. The website will make a shuffle list according to the user's taste for a better listening experience. The website will allow users to listen to the radio 24*7.  The website will allow users to switch between light and dark modes. The website will play the music and it will also allow the user to manage the progress bar for that song, if a user wants to listen to the same bit, again and again, they can surely do that. The website will allow users to adjust the volume on the screen as well. The website will allow users to find social events or live concerts according to their music taste so that they can enjoy themselves and socialize with people after a post-covid environment.
+## Feature List (and Future Scope)
+- [x] Login (Using JWT Authentication)
+- [x] Dynamic Header
+- [x] Dynamic NavBar
+- [x] Music Cards
+- [x] Stream Music 
+- [x] Stream Live Internet Radio
+- [x] Create / Delete Playlist for a User
+- [x] Music Events 
+- [x] Change Application Color theme
+- [ ] Personalized Music Recommendations
+- [ ] Personalized Events Recommendations
+- [ ] Search Feature
+- [ ] Filtering Feature
+- [ ] Events Registration & Payments
 
----------------------------------------------------
+## Steps to Run
+1. Clone the repository
+2. Change the directory to *server* and install dependancies : ``npm i``
+3. Start the backend server : ``npm start``
+4. Change the directory to *webapp* and install dependancies : ``npm i``
+5. Start the front server : ``npm start``
+6. Navigate to : https://localhost:3000
 
-# Proposed Website Name-
 
-ON THE AUX
-
----------------------------------------------------------
-
-# Domain Model-
-![image](https://user-images.githubusercontent.com/98073016/160754179-face43fa-cdec-4e4c-90a8-4f200fe6ad52.png)
 
 
 
