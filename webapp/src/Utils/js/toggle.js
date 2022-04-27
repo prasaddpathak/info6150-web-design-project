@@ -1,3 +1,9 @@
+/*
+    Author:     Web of Lies
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    JSX file for Toggle the theme
+*/
+
 import React, { useState, useEffect } from "react";
 import { lightTheme, darkTheme } from "./theme";
 import Switch from '@material-ui/core/Switch';
@@ -5,8 +11,6 @@ import Switch from '@material-ui/core/Switch';
 export default function Toggle() {
     //Current theme is picke up by session storage
     let sessionTheme = sessionStorage.getItem('theme')
-
-
     const [currentTheme, setTheme] = useState(sessionTheme)
         // const [currentTheme, setTheme] = useState("light");
 
