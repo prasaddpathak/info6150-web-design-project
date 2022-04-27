@@ -30,8 +30,12 @@ const Signup = () => {
         const { name, email, password, reEnterPassword ,contactNo} = user
         if( name && email && password &&contactNo &&(password === reEnterPassword))
         {
+            //validations starts here
             if(!(validator.isEmail(email))){
                 return alert("Please enter valid email!");
+            }
+            if(!(validator.isMobilePhone(contactNo))){
+                return alert("Please enter valid phone number of 10 digits!");
             }
         
             axios.post("http://localhost:9008/user", user) 
@@ -47,14 +51,14 @@ const Signup = () => {
 
     return (
         <div className="signUp">
-            {console.log("User", user)}
+           
             <h1>Sign Up Now!!</h1>
             <br/>
             <input type="text" name="name" value={user.name} placeholder="Please enter your Name" onChange={ handle }></input>
             <br/>
             <input type="text" name="email" value={user.email} placeholder="Please enter your Email" onChange={ handle }></input>
             <br/>
-            <input type="text" name="contactNo" value={user.contactNo} placeholder="Please your contact number" onChange={ handle }></input>
+            <input type="text" name="contactNo" value={user.contactNo} placeholder="Please enter your contact number" onChange={ handle }></input>
             <br/>
             <input type="password" name="password" value={user.password} placeholder="Please enter a strong Password" onChange={ handle }></input>
             <br/>

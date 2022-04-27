@@ -24,10 +24,11 @@ class App extends React.Component {
             sessionStorage.setItem('theme', 'light')
         }
     }
+//using token here to assign that to the user
 
     setLoginUser = (token)=>{
         localStorage.setItem("token",token)
-        // console.log('Logged In, adding user data :' + this.state.token);
+        
         
     }
 
