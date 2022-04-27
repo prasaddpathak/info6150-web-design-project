@@ -4,7 +4,7 @@
 WEB OF LIES
 
 ## Team Members
-1. Web Of Lies  (pathak.pra@northeastern.edu)
+1. Prasad Pathak  (pathak.pra@northeastern.edu)
 2. Gloria Singh   (singh.gl@northeastern.edu)
 3. Trisha Ghorpade (ghorpade.t@northeastern.edu)
 4. Sreyoshi Ghosh (ghosh.sr@northeastern.edu)
@@ -28,11 +28,11 @@ On the Aux is an end-to-end integrated solution which would let a user listen to
 - [x] Create / Delete Playlist for a User
 - [x] Music Events 
 - [x] Change Application Color theme
-- [ ] Personalized Music Recommendations
-- [ ] Personalized Events Recommendations
-- [ ] Search Feature
-- [ ] Filtering Feature
-- [ ] Events Registration & Payments
+- [] Personalized Music Recommendations
+- [] Personalized Events Recommendations
+- [] Search Feature
+- [] Filtering Feature
+- [] Events Registration & Payments
 
 ## Steps to Run
 1. Clone the repository
