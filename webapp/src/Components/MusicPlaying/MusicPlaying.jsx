@@ -1,13 +1,15 @@
+/*
+    Author:     Web of Lies
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    JSX file for Playing Music
+*/
 import React from 'react'
-// import Song from '../../Assets/Audio/song.mp3';
-//import songImg from '../Assets/musicpicture.jpg';
 import { Link } from 'react-router-dom';
 import './MusicPlaying.scss'
-// import song from '../../Assets/Audio/Song_Music/song.mp3'
 import disc from '../../Assets/Img/songDisk.png'
 import { lightTheme, darkTheme } from "../../Utils/js/theme";
-//class musicplaying component defined
 
+//class musicplaying component defined
 class MusicPlaying extends React.Component {
     constructor(props) {
         super(props);
@@ -17,6 +19,7 @@ class MusicPlaying extends React.Component {
             songImg: ''
         }
     }
+    //Color theme used
     componentDidMount() {
 
         let currentTheme = sessionStorage.getItem('theme')
