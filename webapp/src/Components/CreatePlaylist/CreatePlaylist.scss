@@ -6,9 +6,9 @@
 @import '../../Utils/scss/variables';
 
 .create-playlist-container{
-    height: 90vh;
+    height: auto;
     overflow-y: auto;
-    background: radial-gradient(circle, rgba($color-orange,0.7) 0%, rgba(148,187,233,1) 100%);
+    // background: radial-gradient(circle, rgba($color-orange,0.7) 0%, rgba(148,187,233,1) 100%);
     color: aliceblue;
 
     .create-playlist-box{
@@ -19,7 +19,7 @@
         -webkit-backdrop-filter: blur(13.8px);
         height: fit-content;
         width: fit-content;
-        margin: 75px auto;
+        margin: 50px auto;
     }
     h1 {
         padding: 30px 50px;
@@ -27,7 +27,7 @@
         text-align: center;
     }
     form {
-        padding: 30px;
+        padding: 5px 30px;
         text-align: center;
         left: 50%;
         margin: auto;
@@ -41,6 +41,7 @@
             border-style: none;
             border-radius: 20px;
             background-color: $color-blue;
+            margin-bottom: 20px;
         }
     }
     label {
