@@ -1,6 +1,6 @@
 .music-card {
   width: fit-content;
-  padding: 40px;
+  padding: 0px 10px;
   .music-card-cover {
     position: relative;
     display: flex;
@@ -8,7 +8,7 @@
     img {
       width: 230px;
       height: 230px;
-      border-radius: 10px;
+      border-radius: 25px;
     }
     .play-circle {
       position: absolute;

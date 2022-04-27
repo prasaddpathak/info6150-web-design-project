@@ -43,8 +43,9 @@ const Login = (props) => {
 
         <div className="login">
            
-            <img height="35%" className="image animate__animated animate__heartBeat animate__repeat-3" src={logo} alt="app icon"/>
-            <h1>On the aux</h1>
+            <img height="35%" className="image animate__animated animate__pulse animate__infinite" src={logo} alt="app icon"/>
+            {/* <h1>On the aux</h1> */}
+            <br />
             {console.log("user",user)}
             <input type="text" name="email" value={user.email} placeholder="Please enter your email" onChange={handle}></input>
             <br/>

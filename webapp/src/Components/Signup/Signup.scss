@@ -1,5 +1,6 @@
 @import "./../../Utils/scss/variables";
 
+
 .signUp{
     margin-left: 30%;
     margin-top: 5%;
@@ -8,10 +9,18 @@
     align-items: center;
     justify-content: center;
     width: 40vw;
-    height: 45vw;
-    border-radius: 20px;
-    box-shadow: 0 0 15px 5px black;
-    background-image: $boxforLoginSign;
+    height: 80vh;
+    // border-radius: 20px;
+    // box-shadow: 0 0 15px 5px black;
+    // background-image: $boxforLoginSign;
+
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(13.8px);
+    -webkit-backdrop-filter: blur(13.8px);
+    color: $color-white;
+
     position: relative;
     opacity: 0.9;
     font-size: 1.5rem;

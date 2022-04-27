@@ -52,7 +52,7 @@ const Signup = () => {
     return (
         <div className="signUp">
            
-            <h1>Sign Up Now!!</h1>
+            <h1>Sign Up Now</h1>
             <br/>
             <input type="text" name="name" value={user.name} placeholder="Please enter your Name" onChange={ handle }></input>
             <br/>
