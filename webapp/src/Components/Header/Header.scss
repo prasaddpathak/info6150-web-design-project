@@ -1,0 +1,34 @@
+/*
+    Author:     Web Of Lies
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    SCSS file for Header Page
+*/
+@import '../../Utils/scss/_variables.scss';
+
+@mixin flexBox() {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+nav {
+  height: 10vh;
+  display: flex;
+  background-color: $color-black;
+  user-select: none;
+  div {
+    @include flexBox;
+  }
+  .navigation {
+    flex-flow: row wrap;
+  }
+  .Dropdown-btn {
+    display: flex;
+    .wrapper {
+      padding: 0;
+      flex-direction: column;
+      color: $color-orange;
+    }
+  }
+}
