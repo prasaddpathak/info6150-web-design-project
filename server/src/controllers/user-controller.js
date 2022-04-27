@@ -1,3 +1,9 @@
+/*
+    Author:     Web of lies
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    Provide User API controller. Call is made to user service layer from this controller
+*/
+
 import * as userService from './../services/user-services.js';
 import * as utils from './../helpers/utils.js';
 import bcrypt, { hash, hashSync } from 'bcrypt';
@@ -6,14 +12,9 @@ import express from 'express';
 import { SESS_LIFETIME, SESS_SECRET } from '..//config/config.js';
 import jwt from 'jsonwebtoken';
 
-
+//user is being created here and post function starts here
 export const post = async(request, response) => {
     try {
-        //put await for the variable since its a async function
-        // const userNew=await Model.findOne({email:request.body.email})
-        // if(userNew){
-        //     return response.status(409).send({message:"User already present"});
-        // }
         const payload = request.body;
         const user = await userService.save(payload);
         utils.setSuccessResponse({ message: `User successfully added` }, response);
@@ -22,6 +23,10 @@ export const post = async(request, response) => {
     }
 }
 
+//post function ends here
+
+
+//function to get one user with that firstname and lastname
 export const index = async(request, response) => {
     try {
         console.log(request.query);
@@ -53,6 +58,7 @@ export const get = async(request, response) => {
     }
 }
 
+//updating user information
 export const update = async(request, response) => {
     try {
         const id = request.params.id;
@@ -66,6 +72,8 @@ export const update = async(request, response) => {
     }
 }
 
+//update function starts here
+
 export const remove = async(request, response) => {
     try {
         const id = request.params.id;
@@ -76,6 +84,7 @@ export const remove = async(request, response) => {
     }
 }
 
+//login credentials with token generation
 export const login = async(request, response) => {
     try {
 
@@ -86,7 +95,6 @@ export const login = async(request, response) => {
         {
             //here the user-password is being compared to the hashed password in the database
             if (userN && userN.comparePasswords(password)) {
-
                 const token = jwt.sign({
                     email: userN.email,
                     userId: userN._id
@@ -94,10 +102,9 @@ export const login = async(request, response) => {
                     expiresIn: SESS_LIFETIME
                 });
 
-
                 utils.setSuccessResponse({ message: `Successfully Logged In`, token: token }, response);
             } else {
-                // const pwd1 = hashSync(password, 10);
+               
                 const user = await userService.checkPassword(email);
                 if (user.password === password) {
 
@@ -108,13 +115,12 @@ export const login = async(request, response) => {
                         expiresIn: SESS_LIFETIME
                     });
 
-
                     utils.setSuccessResponse({ message: `Successfully Logged In`, token: token }, response);
                 } else
 
                     utils.setSuccessResponse({ message: `Oops!! Password Did not match,Invalid credentials` }, response);
             }
-        } else //if user does not exist
+        } else //if the user does not exist
         {
             utils.setSuccessResponse({ message: `User does not exist` }, response);
         }
@@ -122,7 +128,10 @@ export const login = async(request, response) => {
         utils.setErrorResponse(error, response);
     }
 }
+//login part ends here
 
+
+//get playlist function for a user starts here
 export const getPlaylists = async(request, response) => {
     try {
         const id = request.params.id;
@@ -135,6 +144,10 @@ export const getPlaylists = async(request, response) => {
     }
 }
 
+//getplaylist function ends here
+
+
+//update a playlist function starts here which is a filtering functionality
 export const updatePlaylists = async(request, response) => {
     try {
         const id = request.params.id;
@@ -149,14 +162,14 @@ export const updatePlaylists = async(request, response) => {
             'playlist_name': playlist_name,
             'playlist_details': playlist_details
         }
-
-        // console.log(payload);
         const result = await userService.appendPlaylistForAUser(id, playlist);
         utils.setSuccessResponse(result, response);
     } catch (error) {
         utils.setErrorResponse(error, response);
     }
 }
+
+
 
 export const deletePlaylist = async(request, response) => {
     try {

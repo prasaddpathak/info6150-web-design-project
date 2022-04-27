@@ -3,7 +3,7 @@
     color: white;
     text-align: center;
     .image-grid{
-        border-radius: 100px;
+        border-radius: 20px;
         margin-bottom: 10px;
     }
     h4{
@@ -24,6 +24,12 @@
             font-family: 'Ultra', serif;
       
     }
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    
 }
 
 .carousel-heading{
@@ -43,5 +49,9 @@
         font-family: 'Source Code Pro', monospace;
         font-family: 'Square Peg', cursive;
         font-family: 'Ultra', serif;
-}
 
+        a{
+            text-decoration: none;
+            color: white;
+        }
+}
