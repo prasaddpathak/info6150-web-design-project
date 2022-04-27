@@ -1,0 +1,15 @@
+/*
+    Author:     Web Of Lies
+    Subject:    INFO6150 - Web Design and UX
+    Purpose:    SCSS file for GenreList Element
+*/
+.lang-list{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 50% 50%;
+    button{
+        background-color: aquamarine;
+        margin: 5px;
+    }
+}
+  
